@@ -1,0 +1,65 @@
+.container{
+    width: 90%;
+    height: 90%;
+    background: rgba(241, 184, 255, 1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    padding: 0px;
+    padding-bottom: 10px;
+    
+}
+
+.picture{
+  
+    width: 100%;
+    height: 200px;
+    background-color: white;
+}
+
+
+
+.article-title{
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+}
+
+.article-author{
+    padding-left: 10px;
+    font-style: italic;
+}
+
+.article-content{
+    margin: 15px;
+
+}
+
+// 
+
+
+
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    margin: 20px;
+
+}
+
+
+.publication-date{
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+
+
+.delete-btn{
+    text-align-last: center;
+}
+

@@ -1,0 +1,56 @@
+
+
+    <div class="container">
+
+      <div class="picture"></div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <h1 class="article-title">{{post?.title}}</h1>
+          <span>
+                    <p class="article-author">par {{post?.username}}</p>
+                </span>
+          <hr>
+          <p class="article-content" [innerHTML]="post?.content"></p>
+
+          <button class="btn btn-outline-danger delete-btn" type="button" (click)="deletePost()" routerLink="/blog">Supprimer</button>
+          <button class="btn btn-outline-danger delete-btn" type="button" (click)="updatePost()">Modifier</button>
+
+          
+        </div>
+      </div>
+  
+    </div>
+  
+
+
+<!-- <div class="container">
+    <div class="picture"></div>
+    <div class="content">
+        <div class="title"><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></div>
+        <div class="publication-date"><i class="fas fa-user"></i> Author: <p>{{post.username}}</p></div>
+        <p [innerHTML]="post.content"></p>
+        <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Lire plus</a>
+
+    </div>
+</div> -->
+
+
+<!-- <div class="content">
+    <div class="container">
+      <div class="row" *ngFor="let post of posts | async">
+        <div class="blogpost">
+          <h3><a href="/post/{{post.id}}" class="blog-title">{{post.title}}</a></h3>
+          <div>
+            <i class="fas fa-user"></i> Author: <p>{{post.username}}</p>
+          </div>
+          <p [innerHTML]="post.content"></p>
+          <div>
+            <a type="button" href="/post/{{post.id}}" class="read-more btn btn-default">Read More</a>
+          </div>
+          <hr>
+        </div>
+        <hr>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,79 @@
+<nav class="navbar-responsive navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid whitebg">
+    <img src="../../../assets/logoAlicia6.png" alt="" [routerLink]="['']" routerLinkActive="router-link-active">
+    <button id="menu-mobile">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="menu">
+    <ul class="menu-list">
+      <li class="menu-list-item"><a routerLinkActive="active" routerLink="home">Accueil</a></li>
+      <li class="menu-list-item"><a routerLinkActive="active" routerLink="blog">Blog</a></li>
+      <li class="menu-list-item" *ngIf="!authService.isAuthenticated()"><a routerLinkActive="active" routerLink="connexion" >Connexion</a></li>
+      <!-- <li class="menu-list-item"><a>Mon profil</a></li> -->
+      <li class="menu-list-item" *ngIf="authService.isAuthenticated()"><a routerLinkActive="active" routerLink="add-post" > Ajouter un post</a></li>
+      <li class="menu-list-item" *ngIf="authService.isAuthenticated()"><a (click)="logout()" routerLinkActive="active" routerLink="connexion">Déconnexion</a></li>
+      <!-- <li class="menu-list-item"><a>A propos de</a></li>
+      <li class="menu-list-item"><a>Politique de confidentialité</a></li>
+      <li class="menu-list-item"><a>Paramètres</a></li> -->
+    </ul>
+    <!-- <button class="btn-co" [routerLink]="['/connexion']" routerLinkActive="router-link-active">
+      Se connecter
+    </button> -->
+  </div>
+</nav>
+
+<nav class="navbar-desktop first-nav navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="../../../assets/logoAlicia6.png" alt="Logo Surveillance">
+    </a>
+    <div class="buttons-desktop">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLinkActive="active" routerLink="home">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" routerLink="blog">Blog</a>
+        </li>
+        <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+          <a class="nav-link" routerLinkActive="active" routerLink="connexion">Connexion</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a class="nav-link" routerLinkActive="active" routerLink="add-post">+ post</a>
+        </li>
+        <li class="nav-item" *ngIf="authService.isAuthenticated()">
+          <a class="nav-link" (click)="logout()" routerLinkActive="active" routerLink="connexion">Déconnexion</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <li class="nav-item">
+          <button class="btn btn-success" (click)="onClickAddFeature()">Ajout feature</button>
+        </li>  -->
+
+<!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+    </ul>
+  </div>
+</div>
+</nav> -->

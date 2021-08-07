@@ -1,0 +1,63 @@
+.page-footer{
+    background-color: rgba(217, 218, 218, 1);
+
+}
+
+.text-uppercase{
+    font-weight: 600;
+}
+
+.description{
+    text-align: left;
+}
+
+a{
+    color: black;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+.boxletter{
+    width: 70px;
+}
+
+.newsletter{
+display: flex;
+}
+
+.mail-input{
+width: 60%;
+background: #FFFFFF;
+border: transparent;
+}
+
+.form-control {
+    border: transparent;
+    border-bottom: 1px solid rgba(161, 68, 224, 1);
+    border-radius: 3px;
+    background: white;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    width: 80%;
+}
+
+.form-group{
+    display: flex;
+}
+
+.btn-newsletter{
+    width: 15%;
+    background: blueviolet;
+    color: white;
+    height: 45px;
+}
+
+@media (min-width: 767px){
+    .btn-newsletter{
+        width: auto;
+    }
+
+}
+

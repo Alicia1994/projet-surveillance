@@ -1,0 +1,149 @@
+
+img{
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    height: 450px;
+}
+
+button{
+    background: white;
+    text-decoration: inherit;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 800;
+}
+
+.first-plan{
+    position: relative;
+    text-align: center;
+}
+
+
+.about-asso{
+    border: 10px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(#FE58ED, #5890FE);
+}
+
+.about-asso-text{
+    margin: 5px;
+    color: rgba(88, 144, 254, 1);
+    font-weight: 600;
+}
+
+
+ .title{
+    color: white;
+    font-size: 1.8rem;
+}
+
+.container-title{
+    background-color: rgba(40, 39, 107, 0.8);
+     width: 70%;
+    position: absolute; 
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+    
+.description{
+     color: white;
+    font-size: 0.8rem;
+    margin: 5px;
+    }
+
+.container-description{
+    background-color: rgba(40, 39, 107, 0.8);
+    width: 75%;
+    position: absolute; 
+    top: 65%;
+    left: 48%;
+    transform: translate(-50%, -50%); 
+}
+
+.bloc{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.articles{
+    text-align: -webkit-center;
+}
+
+
+//******** MEDIA QUERIES min 480px ******* 
+@media (min-width: 480px){
+    .title{
+        font-size: 2rem;
+    }
+
+    .description{
+        font-size: 1rem;
+    }
+
+    .about-asso-text{
+        margin: 8px;
+    }
+
+    button{
+        top: 90%;
+    }
+
+    .about-asso-text{
+       font-size: 1em;
+    }
+    img{
+        height: 500px;
+    }
+
+}
+
+//******** MEDIA QUERIES min 960px ******* 
+
+@media (min-width: 960px){
+   
+    img{
+        height: 600px;
+    }
+   
+    .title{
+    
+        font-size: 2.7rem;
+    }
+
+    .description{
+        font-size: 1.2rem;
+    }
+
+    .about-asso-text{
+        margin: 10px;
+    }
+
+}
+
+//******** MEDIA QUERIES min 1281px ******* 
+@media (min-width: 1281px){
+
+    img{
+        height: 700px;
+    }
+    .title{
+    
+        font-size: 3rem;
+    }
+
+    .description{
+        font-size: 1.4rem;
+    }
+
+    .about-asso-text{
+        margin: 10px;
+        font-size: 1.2em;
+    }
+
+}

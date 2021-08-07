@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card py-3 px-2">
+                <h1 class="text-center mb-3 mt-2">Connexion</h1>
+
+                <form class="myform" [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                    <label for="inputUsername">
+                        <p>Pseudonyme</p>
+                    </label>
+                    <div class="form-group"> <input type="text" class="form-control" id="inputUsername" formControlName="username"
+                             ngModel required>
+
+                    </div>
+                    <label for="inputPassword">
+                        <p>Mot de passe</p>
+                    </label>
+                    <div class="form-group"> <input type="password" class="form-control" id="inputPassword" formControlName="password"
+                           ngModel required>
+
+                    </div>
+
+                    <div class="row">
+                        <!-- <div class="col-md-6 col-12">
+                            <div class="form-group form-check"> <label><input type="checkbox" class="form-check-input"
+                                        id="exampleCheck1"> <span class="stay_connected">Se souvenir de
+                                        moi</span></label> </div>
+                        </div>
+                        <div class="col-md-6 col-12 bn"><span>Mot de passe oublié</span></div> -->
+                    </div>
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-block btn-primary btn-lg"
+                            ><small><i class="far fa-user pr-2"></i> Se
+                                connecter</small></button>
+                        <div class="no-account col-md-6 col-12 bn"><a class="nav-link active" aria-current="page"
+                                routerLinkActive="active" routerLink="/signup"><span>Je n'ai pas de compte</span></a>
+                        </div>
+
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
