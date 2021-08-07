@@ -5,38 +5,31 @@
     </div>
 
 
-    <div class="list-articles">
+    <div *ngIf="posts$ | async as posts">
+        <div class="no-article" *ngIf="posts.length == 0; else block">
 
-        <div class="container_list">
+            <p>Vous n'avez publié aucun article sur le blog !</p>
+        </div>
+
+        <ng-template #block>
+
+    <div  class="list-articles"> 
+
+        <!-- *ngIf="posts.length > 0"  -->
+        <div *ngFor='let post of posts.slice(posts.length-3, posts.length)' class="container_list">
             <div class="picture"></div>
             <div class="content">
-                <div class="title">Titre de l'article</div>
-                <button class="read-article">
+                <div class="title">{{post.title}}</div>
+                <button class="read-article" routerLink="/post/{{post.id}}">
                     <p class="read-article-text"> Lire l'article</p>
                 </button>
             </div>
         </div>
 
-        <div class="container_list">
-            <div class="picture"></div>
-            <div class="content">
-                <div class="title">Titre de l'article</div>
-                <button class="read-article">
-                    <p class="read-article-text"> Lire l'article</p>
-                </button>
-            </div>
-        </div>
-    
+</div>
+</ng-template>
 
-    <div class="container_list">
-        <div class="picture"></div>
-        <div class="content">
-            <div class="title">Titre de l'article</div>
-            <button class="read-article">
-                <p class="read-article-text"> Lire l'article</p>
-            </button>
-        </div>
-    </div>
+
 
 
 </div>

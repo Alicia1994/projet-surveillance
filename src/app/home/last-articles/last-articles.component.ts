@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Post } from 'src/app/models/post-payload';
+import { AddPostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-last-articles',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LastArticlesComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<Array<Post>>;
 
-  ngOnInit(): void {
+
+  constructor(private addPostService: AddPostService, private router: Router) { }
+
+
+  ngOnInit() {
+    this.posts$ = this.addPostService.findAll();
   }
 
 }

@@ -26,6 +26,8 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { HttpClientInterceptor } from './http-client-interceptor';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { UpdatePostComponent } from './update-post/update-post.component';
     SignupSuccessComponent,
     AddPostComponent,
     UpdatePostComponent,
+    DashboardComponent,
+    ProfilComponent,
     
   ],
   imports: [

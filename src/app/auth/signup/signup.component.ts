@@ -26,15 +26,9 @@ export class SignupComponent implements OnInit {
     email: '', 
     password:''
   }
-
-  
   }
 
   ngOnInit(): void {
-  }
-
-  initForm() {
-    
   }
 
   onSubmit() {
@@ -44,14 +38,11 @@ export class SignupComponent implements OnInit {
 
     this.authService.signup(this.signupPayload).subscribe(data=>{
       console.log('register success');
-      console.log(this.signupPayload)
       this.router.navigateByUrl("signup-success");
     }, error => {
       console.log("register failed")
     }
-
     );
-
 }
 
 }
