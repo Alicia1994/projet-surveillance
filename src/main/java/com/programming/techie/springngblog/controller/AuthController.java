@@ -17,6 +17,8 @@ package com.programming.techie.springngblog.controller;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+
+
     @Autowired
     private AuthService authService;
 

@@ -1,9 +1,8 @@
-/*
 package com.programming.techie.springngblog.controller;
 
 
 import com.programming.techie.springngblog.model.User;
-import com.programming.techie.springngblog.service.UserService;
+import com.programming.techie.springngblog.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,13 +13,20 @@ import java.util.List;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/api/users")
-@Controller
+@RestController
 
 public class UserController {
 
 
     @Autowired
-    private final UserService userService;
+    UserDetailsServiceImpl userDetailsServiceImpl;
+
+
+    @GetMapping("")
+    public Iterable<User> listUser() {
+        return userDetailsServiceImpl.getAllUser();
+    }
+/*
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -32,7 +38,8 @@ public class UserController {
         return new ResponseEntity<>(listUsers, HttpStatus.OK);
     }
 
-
+*/
+/*
     @GetMapping("/{id}")
     public ResponseEntity <User> getById(@PathVariable Long id) {
         User user = userService.findById(id);
@@ -43,7 +50,6 @@ public class UserController {
     public ResponseEntity<User> deleteUser(@PathVariable Long id){
         userService.deleteUserById(id);
         return new ResponseEntity<>(HttpStatus.OK);
-    }
+    }*/
 
 }
-*/
