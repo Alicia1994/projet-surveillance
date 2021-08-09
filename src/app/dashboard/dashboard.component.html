@@ -17,7 +17,7 @@
                 <th>Id</th>
                 <th>Mail</th>
                 <th>Pseudo</th>
-                <th>Bin</th>
+                <th>Action</th>
                 <!-- <th>Date de création</th> -->
         </thead>
     
@@ -36,7 +36,8 @@
                 <span>{{user.username}}</span>
             </td>
             <td>
-                    <button> <a class="bin" type="button" (click)="deleteUser(user.id)">Supprimer</a></button>
+                    <button>
+                        <a class="bin" type="button" (click)="deleteUser(user.id)"> <i class="fas fa-trash"></i></a></button>
             </td>
             <!-- <td>
               <select>
