@@ -43,12 +43,7 @@ public class PostController {
 
     @PutMapping
     public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
-        //Post post = modelMapper.map(postDto, Post.class);
         Post post = postService.updateSinglePost(postDto);
-      //  PostDto postDto = postService.readSinglePost(id);
-      //  postDto.setTitle(postDto.getTitle());
-      //  postDto.setContent(postDto.getContent());
-
         return new ResponseEntity(post, HttpStatus.OK);
     }
 

@@ -1,18 +1,11 @@
 package com.programming.techie.springngblog.controller;
 
 
-import com.programming.techie.springngblog.dto.PostDto;
-import com.programming.techie.springngblog.dto.UserDto;
-import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
-import com.programming.techie.springngblog.service.impl.UserDetailsServiceImpl;
+import com.programming.techie.springngblog.security.jwt.JwtProvider;
+import com.programming.techie.springngblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/api/users")
@@ -22,16 +15,20 @@ public class UserController {
 
 
     @Autowired
-    UserDetailsServiceImpl userDetailsServiceImpl;
+    UserService userService;
 
     @GetMapping("")
     public Iterable<User> listUser() {
-        return userDetailsServiceImpl.getAllUsers();
+        return userService.getAllUsers();
     }
+
+
+    @GetMapping("/{id}")
+    public User user(@PathVariable long id) { return  userService.getUserById(id);}
 
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
-        userDetailsServiceImpl.deleteSinglePost(id);
+        userService.deleteSinglePost(id);
     }
 /*
 

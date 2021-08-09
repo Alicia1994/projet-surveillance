@@ -1,4 +1,4 @@
-package com.programming.techie.springngblog.service.impl;
+package com.programming.techie.springngblog.security.service;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.programming.techie.springngblog.model.User;

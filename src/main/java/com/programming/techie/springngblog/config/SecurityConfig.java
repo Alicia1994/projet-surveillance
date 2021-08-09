@@ -1,6 +1,6 @@
 package com.programming.techie.springngblog.config;
 
-import com.programming.techie.springngblog.security.JwtAuthenticationFilter;
+import com.programming.techie.springngblog.security.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;

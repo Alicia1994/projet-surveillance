@@ -53,7 +53,6 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post updateSinglePost(PostDto postDto){
         Post post = modelMapper.map(postDto, Post.class);
-        //Post post = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));
         return postRepository.save(post);
     }
 
