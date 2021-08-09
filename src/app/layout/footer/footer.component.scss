@@ -11,6 +11,15 @@
     text-align: left;
 }
 
+li{
+    font-size: 0.8rem;
+}
+
+h5{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 a{
     color: black;
 }
@@ -34,6 +43,7 @@ border: transparent;
 }
 
 .form-control {
+    font-size: 0.8rem;
     border: transparent;
     border-bottom: 1px solid rgba(161, 68, 224, 1);
     border-radius: 3px;
@@ -48,6 +58,7 @@ border: transparent;
 }
 
 .btn-newsletter{
+    font-size: 0.8rem;
     width: 15%;
     background: blueviolet;
     color: white;
@@ -58,6 +69,5 @@ border: transparent;
     .btn-newsletter{
         width: auto;
     }
-
 }
 

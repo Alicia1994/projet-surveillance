@@ -1,0 +1,56 @@
+p{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+span{
+    font-style: italic;
+    font-weight: 100;
+}
+
+.container{
+    background-color: rgba(241, 184, 255, 1);
+    margin: 20px;
+    padding: 10px;
+    text-align-last: center;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+}
+
+.title{
+    margin: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: solid;
+}
+
+.info{
+    display: inline-flex;
+    margin: 15px;
+}
+
+.infos-user{
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+}
+
+.update{
+    margin-left: 10px;
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+  .container{
+      width: 70%;
+  }
+}
+
+@media (min-width: 1024px){
+    .container{
+        width: 60%;
+    }
+}

@@ -38,7 +38,6 @@ export class AuthService {
       this.localStorageService.clear('authenticationToken');
       this.localStorageService.clear('username');
       this.router.navigate(['/connexion']);
-
     }
 }
 

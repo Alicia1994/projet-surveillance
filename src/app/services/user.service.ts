@@ -17,4 +17,8 @@ export class UserService {
     findAll(): Observable<Array<User>>{
     return this.httpClient.get<Array<User>>( this.baseUrl);
   }
+
+  delete(idUser: Number):Observable<User>{
+    return this.httpClient.delete<User>(this.baseUrl + '/' + idUser)
+  }
 }

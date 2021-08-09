@@ -7,78 +7,50 @@ form {
   display: flex;
   flex-flow: column;
   align-items: center;
-  // padding-left:200px;
-  // padding-right:200px;
-  // padding-top:40px;
-  // margin: 12px auto;
-  // // border: 2px solid #ccc;
-  // border-radius: 20px;
-  // position:relative;
-  // z-index:1;
-  // background-color: white;
-  // display: flex;
-  
-
+  background: rgba(241, 184, 255, 1);
+  padding: 25px;
 }
 
-//   input::placeholder,
-//   textarea::placeholder {
-//     color: white;
-//   }
+  input::placeholder,
+  textarea::placeholder {
+    color: white;
+  }
 
 .picture-mail{
   background-color: rgba(118, 20, 190, 0.76);
 }
 
-//   h1{
-//     color: white;
-//     text-align: center;
-//   }
+  h1{
+    text-align: center;
+  }
 
   
-//   form > div{
-//     position:relative;
-//     padding:0 20px;
-//     transform:translate(-50%,-50%);
-//     text-align:center;
-//   }
+  form > input,
+  form > textarea {
+    padding: 12px;
+    margin: 12px auto;
+    border: 1px solid #ccc;
+    color: white;
+    background-color: rgba(118, 20, 190, 0.76);;
+    border-radius: 4px;
+    display: block;
+    width: 40vw;
   
-//   form > div > img{
-//     filter:invert(1);
-//     width:100px;
-//   }
-  
-//   form > input,
-//   form > textarea {
-//     padding: 12px;
-//     margin: 12px auto;
-//     border: 1px solid #ccc;
-//     color: white;
-//     background-color: rgba(118, 20, 190, 0.76);;
-//     border-radius: 4px;
-//     display: block;
-//     width: 40vw;
-  
-//   }
+  }
 
+ 
+  form > input[type="submit"] {
+    max-width: 20vw;
+    padding-left: 1%;
+    padding-right: 1%;
+    cursor: pointer;
+    transition: 0.35s;
+  }
   
-//   form > textarea{
-//     height:100px;
-//     resize:none;
-//   }
-  
-//   form > input[type="submit"] {
-//     max-width: 20vw;
-//     padding-left: 1%;
-//     padding-right: 1%;
-//     cursor: pointer;
-//     transition: 0.35s;
-//   }
-  
-//   form > input[type="submit"]:hover {
-//     background-color: rgba(118, 20, 190, 0.76);
-//     color:white;
-//   }
+  form > input[type="submit"]:hover {
+    background-color: #FE58ED;
+    color:white;
+  }
 
 
 

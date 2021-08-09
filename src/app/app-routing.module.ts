@@ -13,6 +13,8 @@ import { SignupSuccessComponent } from './auth/signup-success/signup-success.com
 import { AddPostComponent } from './add-post/add-post.component';
 import { AuthGuard } from './auth.guard';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
 
@@ -28,8 +30,10 @@ const routes: Routes = [
     {path: 'contact', component: ContactFormComponent},
     {path: 'legal-mentions', component: LegalMentionsComponent},
     {path: 'post/:id', component: ArticleComponent},
+    {path:"dashboard", component: DashboardComponent},
     { path : 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'update-post/:id', component: UpdatePostComponent},
+    {path: 'profil', component: ProfilComponent}
     // { path : 'not-found', component: OhFourComponent},
     // { path: '**', redirectTo: '/not-found'}
 

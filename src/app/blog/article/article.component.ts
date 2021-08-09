@@ -28,6 +28,7 @@ export class ArticleComponent implements OnInit {
       this.post = data;
     },(err: any) => {
       console.log('Failure Response');
+      
     })
 
 
@@ -41,12 +42,20 @@ export class ArticleComponent implements OnInit {
     if(confirm('Voulez-vous réellement supprimer cet article ?')){
       this.postService.delete(this.idPost).subscribe(
         data => {
+          
           // CODE JS POUR REFRESH
-          // this.router.navigateByUrl('/blog');
+          this.router.navigateByUrl('/blog');
           console.log(data);
         });
     }
   }
+
+  // this.postSub = this.addPostService.delete(id).subscribe(data =>{ 
+      
+  //   console.log("ok")});
+  //   this.posts$ = this.posts$.pipe(
+  //     map(posts => posts.filter(post => post.id != id))
+  //   )
 
   public updatePost(){
     this.router.navigateByUrl('update-post/' + this.idPost);

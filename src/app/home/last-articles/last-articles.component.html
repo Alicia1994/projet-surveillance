@@ -16,6 +16,7 @@
     <div  class="list-articles"> 
 
         <!-- *ngIf="posts.length > 0"  -->
+        <!-- Ajouter un *ngIf posts.length = 1 ; width: 50% -->
         <div *ngFor='let post of posts.slice(posts.length-3, posts.length)' class="container_list">
             <div class="picture"></div>
             <div class="content">
