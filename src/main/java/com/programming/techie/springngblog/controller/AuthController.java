@@ -25,9 +25,17 @@ public class AuthController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+    @PostMapping("/signup/admin")
+    public ResponseEntity signupAdmin(@RequestBody RegisterRequest registerRequest) {
+        authService.createAdmin(registerRequest);
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
+
+
 
 }

@@ -1,11 +1,16 @@
 package com.programming.techie.springngblog.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 @Entity
-@Table
+@Table(name = "users")
 public class User {
 
     @Id
@@ -17,22 +22,25 @@ public class User {
     private String password;
     @Column
     private String email;
+    private String role;//ROLE_USER,ROLE_ADMIN
+    //private boolean active;
 
 
-    @ManyToMany(fetch = FetchType.LAZY)
+   /* @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles = new HashSet<>();
+            inverseJoinColumns = @JoinColumn(name = "role_id"))*/
 
 
-    public User() {
+    public User(Long id, String username, String password, String email, String roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.role = roles;
     }
 
-    public User(String username, String email, String password) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
+    public User() {
     }
 
     public Long getId() {
@@ -67,11 +75,12 @@ public class User {
         this.email = email;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
+    public String getRoles() {
+        return role;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(String role) {
+        this.role = role;
     }
+
 }

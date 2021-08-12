@@ -3,7 +3,6 @@ package com.programming.techie.springngblog.service;
 import com.programming.techie.springngblog.dto.LoginRequest;
 import com.programming.techie.springngblog.dto.RegisterRequest;
 import com.programming.techie.springngblog.model.User;
-import com.programming.techie.springngblog.repository.RoleRepository;
 import com.programming.techie.springngblog.repository.UserRepository;
 import com.programming.techie.springngblog.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import com.programming.techie.springngblog.common.UserConstant;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class AuthService {
@@ -27,38 +29,27 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtProvider jwtProvider;
-    @Autowired
-    RoleRepository roleRepository;
-
+ /*   @Autowired
+    RoleRepository roleRepository;*/
 
     public void signup(RegisterRequest registerRequest) {
         User user = new User();
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(encodePassword(registerRequest.getPassword()));
-
-  /*      // AJOUT POUR LE ROLE
-        Set<ERole> eRoles = ERole.ConvertFromString(registerRequest.getRole());
-        Set<Role> roles = new HashSet<>();
-
-*/
-   /*     if (eRoles == null) {
-            Role userRole =
-                    roleRepository.findByName(ERole.USER)
-                    .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-            roles.add(userRole);
-        } else {
-            eRoles.forEach(role -> {
-                        Role currentRole = roleRepository.findByName(role)
-                                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
-                        roles.add(currentRole);
-                    }
-            );
-        }*/
-
-      //  user.setRoles(roles);
+        user.setRoles(UserConstant.DEFAULT_ROLE);
         userRepository.save(user);
     }
+
+    public void createAdmin(RegisterRequest registerRequest) {
+        User user = new User();
+        user.setUsername(registerRequest.getUsername());
+        user.setEmail(registerRequest.getEmail());
+        user.setPassword(encodePassword(registerRequest.getPassword()));
+        user.setRoles(UserConstant.ADMIN_ACCESS);
+        userRepository.save(user);
+    }
+
 
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);

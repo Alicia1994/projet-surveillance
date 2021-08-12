@@ -17,12 +17,15 @@ public class UserService {
     public Iterable<com.programming.techie.springngblog.model.User> getAllUsers(){
         return userRepository.findAll();
     }
+
+
+
     public User getUserById(Long id){
         return userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 
-    public void deleteSinglePost(Long id){
+  /*  public void deleteSinglePost(Long id){
         com.programming.techie.springngblog.model.User user = userRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));
         userRepository.delete(user);
-    }
+    }*/
 }
