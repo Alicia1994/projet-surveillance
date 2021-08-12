@@ -32,6 +32,9 @@ package com.programming.techie.springngblog.security.jwt;
 public class JwtProvider {
     private KeyStore keyStore;
 
+    @Autowired
+    UserRepository userRepository;
+
     @PostConstruct
     public void init() {
         try {
@@ -46,9 +49,13 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
+
+        com.programming.techie.springngblog.model.User user =
+                userRepository.findByUsername(principal.getUsername()).get();
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())
+                .claim("roles", user.getRoles())
                 .compact();
     }
 

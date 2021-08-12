@@ -1,4 +1,4 @@
-package com.programming.techie.springngblog.model;
+/*package com.programming.techie.springngblog.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,4 +12,4 @@ public enum ERole {
         role.forEach(str -> roles.add(ERole.valueOf(str)));
         return roles;
     }
-}
+}*/

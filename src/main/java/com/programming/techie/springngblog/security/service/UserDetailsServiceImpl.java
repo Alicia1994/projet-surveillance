@@ -23,7 +23,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
-    private ModelMapper modelMapper = new ModelMapper();
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -32,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new User(user.getUsername(),
                 user.getPassword(),
                 true, true, true, true,
-                getAuthorities("ROLE_USER"));
+                getAuthorities("USER"));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(String role_user) {
