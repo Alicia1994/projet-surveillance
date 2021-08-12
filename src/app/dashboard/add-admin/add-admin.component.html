@@ -1,0 +1,41 @@
+<div class="container">
+    <main class="row d-flex justify-content-center mt-5">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card py-3 px-2">
+                <h1 class="text-center mb-3 mt-2">Création d'un compte admin</h1>
+
+                <form class="myform" (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+
+                    <div class="form-group">
+                        <label for="formInput">
+                            <p>Username</p>
+                        </label>
+                        <input type="text" class="form-control" id="formInput" placeholder=""
+                            formControlName="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="formInput">
+                            <p>Adresse mail</p>
+                        </label>
+                        <input type="email" 
+                            [ngClass]="{'is-invalid' : (signupForm.get('email')?.dirty || signupForm.get('email')?.touched ) && signupForm.get('email')?.invalid}"
+                            class="form-control" id="formInput" placeholder="" formControlName="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="formInput">
+                            <p>Mot de passe</p>
+                        </label>
+                        <input type="password"
+                            class="form-control"
+                            [ngClass]="{'is-invalid' : (signupForm.get('password')?.dirty || signupForm.get('password')?.touched ) && signupForm.get('password')?.invalid}"
+                            id="formInput" placeholder="" formControlName="password">
+                    </div>
+                    <button class="btn btn-block btn-primary btn-lg" [disabled]="signupForm.invalid" type="submit">Créer
+                        mon compte</button>
+                
+                </form>
+            </div>
+        </div>
+    </main>
+</div>
