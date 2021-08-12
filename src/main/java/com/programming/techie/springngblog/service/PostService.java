@@ -7,10 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface PostService {
+    //findById findAll Create Remove
+
     List<PostDto> showAllPosts();
 
-
-    //findById findAll Create Remove
     void createPost(PostDto postDto);
 
     PostDto readSinglePost(Long id);

@@ -22,15 +22,7 @@ public class User {
     private String password;
     @Column
     private String email;
-    private String role;//ROLE_USER,ROLE_ADMIN
-    //private boolean active;
-
-
-   /* @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))*/
-
+    private String role;
 
     public User(Long id, String username, String password, String email, String roles) {
         this.id = id;

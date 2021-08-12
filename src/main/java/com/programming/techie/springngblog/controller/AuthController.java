@@ -14,8 +14,6 @@ package com.programming.techie.springngblog.controller;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-
-
     @Autowired
     private AuthService authService;
 
@@ -35,7 +33,5 @@ public class AuthController {
     public AuthenticationResponse login(@RequestBody LoginRequest loginRequest) {
         return authService.login(loginRequest);
     }
-
-
 
 }

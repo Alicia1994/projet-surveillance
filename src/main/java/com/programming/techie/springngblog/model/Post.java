@@ -32,11 +32,4 @@ public class Post {
     @Column
     @NotBlank
     private String username;
-/*
-    @Enumerated(EnumType.STRING)
-*/
-
-
-    /*   @Enumerated(EnumType.STRING)*/
-
 }

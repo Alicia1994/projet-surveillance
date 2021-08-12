@@ -44,9 +44,6 @@ public class UserController {
     }
 */
 
-
-
-
 /*
 
     @GetMapping("/{id}")
@@ -65,9 +62,7 @@ public class UserController {
 
 /*
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
+
 
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers(){

@@ -1,6 +1,3 @@
-
-
-
 package com.programming.techie.springngblog.security.jwt;
 
         import com.programming.techie.springngblog.exception.PostNotFoundException;
@@ -44,7 +41,6 @@ public class JwtProvider {
         } catch (KeyStoreException | CertificateException | NoSuchAlgorithmException | IOException e) {
             throw new SpringBlogException("Exception occured while loading keystore");
         }
-
     }
 
     public String generateToken(Authentication authentication) {

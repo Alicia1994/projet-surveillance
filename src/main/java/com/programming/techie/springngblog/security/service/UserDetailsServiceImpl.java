@@ -17,7 +17,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Service
-//@Transactional
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 

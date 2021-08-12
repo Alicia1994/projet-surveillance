@@ -60,13 +60,6 @@ public class AuthService {
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String authenticationToken = jwtProvider.generateToken(authenticate);
-
-// AJOUTE POUR LE ROLE
-     /*   UserDetailsImpl userDetails = (UserDetailsImpl) authenticate.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList());*/
-
         return new AuthenticationResponse(authenticationToken, loginRequest.getUsername());
     }
 
