@@ -24,6 +24,7 @@ package com.programming.techie.springngblog.security.jwt;
         import java.security.cert.CertificateException;
         import java.util.Collection;
         import java.util.Collections;
+        import java.util.Date;
 
 @Service
 public class JwtProvider {
@@ -48,10 +49,12 @@ public class JwtProvider {
 
         com.programming.techie.springngblog.model.User user =
                 userRepository.findByUsername(principal.getUsername()).get();
+        long jwtExpirationMs = 800000000;
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())
-                .claim("roles", user.getRoles())
+                .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .claim("role", user.getRoles())
                 .compact();
     }
 
