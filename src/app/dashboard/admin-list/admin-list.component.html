@@ -1,0 +1,57 @@
+<div class="container">
+    <div *ngIf="users$ | async as users">
+
+    <h1>Mon tableau de bord ADMINS</h1>
+
+    <div class="no-article" *ngIf="users.length == 0; else block">
+
+        <p>Aucun administrateur enregistré !</p>
+
+    </div>
+
+    <ng-template #block>
+
+    <table class="table"  >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mail</th>
+                <th>Pseudo</th>
+                <th>Action</th>
+                <!-- <th>Date de création</th> -->
+        </thead>
+    
+        <tr *ngFor="let user of users">
+    <!-- (click)=addToAnotherTable(i) -->
+            <td>
+                <span>{{user.id}}</span>
+            </td>
+            <td>
+                <span>{{user.email}}</span>
+            </td>
+            <!-- <td>
+                <span>{{user.password}}</span>
+            </td> -->
+            <td>
+                <span>{{user.username}}</span>
+            </td>
+            <td>
+                    <button>
+                        <a class="bin" type="button" (click)="deleteUser(user.id)"> <i class="fas fa-trash"></i></a></button>
+            </td>
+            <!-- <td>
+              <select>
+                 <option *ngFor="let mission of data.missions">
+                    {{mission}}
+                 </option>
+              </select>
+            </td> -->
+        </tr>
+    </table>
+
+</ng-template>
+</div>
+
+</div>
+
+<button [routerLink]="['/add-admin']" routerLinkActive="router-link-active" >Ajouter un admin</button>

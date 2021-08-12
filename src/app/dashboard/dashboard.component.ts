@@ -12,28 +12,18 @@ import { UserService } from '../services/user.service';
 })
 export class DashboardComponent implements OnInit {
 
-  userSub : Subscription;
-  users$: Observable<Array<User>>;
+  boolean = true;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
 
-    this.users$ = this.userService.findAll();
+  switchAdmin(){
+    this.boolean = false;
+  };
 
-  }
-
-  deleteUser(id: number){
-    this.userSub = this.userService.delete(id).subscribe(data =>{ 
-
-      // fonction de filtre
-      this.users$ = this.users$.pipe(
-        map(users=> users.filter(user => user.id != id))
-      )
-      console.log("ok")});
-    
-    //this.router.navigateByUrl('blog');
-    //NOTE TROUVER UN MOYEN DE RAFRACHIR
+  switchUser() {
+    this.boolean = true;
   }
 
 }
