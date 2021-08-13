@@ -28,6 +28,10 @@ export class AuthService {
       return this.httpClient.post(this.url + "signup", signupPayload);
     }
 
+    signupAdmin(signupPayload: SignupPayload): Observable<any> {
+      return this.httpClient.post(this.url + "signup/admin", signupPayload);
+    }
+
     login(loginPayload: LoginPayload): Observable<boolean> {
     
       const token = this.localStorageService.retrieve("authenticationToken");

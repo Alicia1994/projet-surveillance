@@ -28,6 +28,11 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfilComponent } from './profil/profil.component';
+import { EditorArticleComponent } from './dashboard/editor-article/editor-article.component';
+import { UserListComponent } from './dashboard/user-list/user-list.component';
+import { AdminListComponent } from './dashboard/admin-list/admin-list.component';
+import { CommonModule } from '@angular/common';
+import { AddAdminComponent } from './dashboard/add-admin/add-admin.component';
 
 @NgModule({
   declarations: [
@@ -50,9 +55,13 @@ import { ProfilComponent } from './profil/profil.component';
     UpdatePostComponent,
     DashboardComponent,
     ProfilComponent,
-    
+    EditorArticleComponent,
+    UserListComponent,
+    AdminListComponent,
+    AddAdminComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

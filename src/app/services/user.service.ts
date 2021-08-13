@@ -14,11 +14,15 @@ export class UserService {
 
   baseUrl = `${environment.baseUrl}/users`;
 
-    findAll(): Observable<Array<User>>{
-    return this.httpClient.get<Array<User>>( this.baseUrl);
+  findAll(): Observable<Array<User>> {
+    return this.httpClient.get<Array<User>>(this.baseUrl);
   }
 
-  delete(idUser: Number):Observable<User>{
+  findAllAdmin(): Observable<Array<User>> {
+    return this.httpClient.get<Array<User>>(this.baseUrl + "/admin");
+  }
+
+  delete(idUser: Number): Observable<User> {
     return this.httpClient.delete<User>(this.baseUrl + '/' + idUser)
   }
 }

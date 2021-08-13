@@ -15,11 +15,9 @@ import { AuthGuard } from './auth.guard';
 import { UpdatePostComponent } from './update-post/update-post.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfilComponent } from './profil/profil.component';
+import { AddAdminComponent } from './dashboard/add-admin/add-admin.component';
 
 const routes: Routes = [
-
-
-
 
   {path: '', component: LayoutComponent, children : [ 
     { path: 'home', component: HomeComponent},
@@ -39,7 +37,9 @@ const routes: Routes = [
     {path:"dashboard", component: DashboardComponent},
     { path : 'add-post', component: AddPostComponent},
     {path: 'update-post/:id', component: UpdatePostComponent},
-    {path: 'profil', component: ProfilComponent}
+    {path: 'profil', component: ProfilComponent},
+    {path: 'add-admin', component: AddAdminComponent}
+
     // { path : 'not-found', component: OhFourComponent},
     // { path: '**', redirectTo: '/not-found'}
 

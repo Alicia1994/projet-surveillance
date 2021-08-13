@@ -35,20 +35,19 @@ export class ArticleListComponent implements OnInit {
     // ajouter une fonction d'attente de chargement de la page
   }
 
-  setTimeToMoment(date: string){
 
+// ****** Handle the publication of the articles *********
+  setTimeToMoment(date: string){
     const date1  = moment(date, "YYYY-MM-DD h-mm");
     const date2  = moment(new Date().toLocaleString(), "DD/MM/YYYY, h:mm:s");
     const dateDiff = date2.diff(date1, "hours");
-
     if(dateDiff < 24){
-      return moment(date, "YYYY-MM-DD h-mm").fromNow();
+      return "Publié le " + moment(date, "YYYY-MM-DD h-mm").fromNow();
     } else if (dateDiff>=24){
      const dateSplit = date.split(" ");
      const day = dateSplit[0].replace(/-/g, "/").split("/").reverse().join("/");
      const hour = dateSplit[1].replace("-", "h")
-      return day + " à " + hour
-
+      return "Publié " + day + " à " + hour
     }
     //console.log(new Date('2021-08-13 13:43').getHours())
   }
