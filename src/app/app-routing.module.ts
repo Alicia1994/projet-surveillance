@@ -18,20 +18,26 @@ import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
 
-  {path:'article', component: ArticleComponent},
 
-    {path: '', component: LayoutComponent, children : [ 
-    { path: '', redirectTo: 'home', pathMatch: 'full'},
+
+
+  {path: '', component: LayoutComponent, children : [ 
     { path: 'home', component: HomeComponent},
     {path:'connexion', component: LoginComponent},
-    {path:'signup-success', component: SignupSuccessComponent},
-    {path: 'blog', component: BlogComponent},
     {path: 'signup', component: SignupComponent},
-    {path: 'contact', component: ContactFormComponent},
+    {path:'signup-success', component: SignupSuccessComponent},
     {path: 'legal-mentions', component: LegalMentionsComponent},
+    {path: 'contact', component: ContactFormComponent},
+
+  ]},
+
+    {path: '', canActivate: [AuthGuard], component: LayoutComponent, children : [ 
+    { path: '', redirectTo: 'home', pathMatch: 'full'},
+    {path:'article', component: ArticleComponent},
+    {path: 'blog', component: BlogComponent},
     {path: 'post/:id', component: ArticleComponent},
     {path:"dashboard", component: DashboardComponent},
-    { path : 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
+    { path : 'add-post', component: AddPostComponent},
     {path: 'update-post/:id', component: UpdatePostComponent},
     {path: 'profil', component: ProfilComponent}
     // { path : 'not-found', component: OhFourComponent},

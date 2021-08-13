@@ -35,10 +35,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginPayload).subscribe(data=> {
       if(data){
-       // console.log('login success');
+        console.log('login success');
         this.router.navigateByUrl('/blog'); 
       } else {
-        //console.log("login failed")
+        console.log("login failed")
       }
     })
     }

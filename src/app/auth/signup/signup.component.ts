@@ -18,8 +18,12 @@ export class SignupComponent implements OnInit {
    private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {
   this.signupForm = this.formBuilder.group({
      username: '',
+     // new FormControl('gaga', [Validators.required])
      email: '', 
+     // new FormControl('gaga@mail.com', [Validators.required, Validators.email])
      password:''
+
+     //new FormControl('gaga1701', [Validators.required, Validators.minLength(8)])
    });
    this.signupPayload = {
     username: '',

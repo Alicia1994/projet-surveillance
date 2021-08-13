@@ -21,26 +21,31 @@ export class AuthService {
     private router: Router, 
     private httpClient: HttpClient, 
     private localStorageService : LocalStorageService,
-   
         ) {
-          this.getUserToken();
-         }
+          }
 
     signup(signupPayload: SignupPayload): Observable<any> {
       return this.httpClient.post(this.url + "signup", signupPayload);
     }
 
     login(loginPayload: LoginPayload): Observable<boolean> {
+    
       const token = this.localStorageService.retrieve("authenticationToken");
+      console.log(token);
       const decode = this.jwtHelper.decodeToken(token);
+      console.log(decode)
+     // console.log(decode.role)
     
       return this.httpClient.post<JwtAutResponse>(this.url + 'login', loginPayload).pipe(map(data => {
-
+        console.log(decode);
+        
         this.localStorageService.store('authenticationToken', data.authenticationToken);
         this.localStorageService.store('username', data.username);
-        // this.localStorageService.store('role', data.roles);
+        // this.localStorageService.store('role', data.role);
+    
         return true;
       }));
+     
     }
 
     getUserToken(){
@@ -54,10 +59,12 @@ export class AuthService {
         } else {
           localStorage.removeItem('authenticationToken');
         }
-        //decode.role
+     
       }
       return null;
     }
+
+
 
     isAuthenticated(): Boolean{
       return this.localStorageService.retrieve("authenticationToken") !== null;
