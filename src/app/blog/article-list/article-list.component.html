@@ -36,17 +36,16 @@
                         <div class="title"><a routerLink="/post/{{post.id}}">{{post?.title}}</a></div>
                         <div class="author"><i class="fas fa-user"></i>
                             <p> Auteur : {{post?.username}}</p>
+                        <div class="date"><i class="fas fa-user"></i>
+                            <!-- <p> Publié le {{post?.createdOn}} </p>  -->
+                            <p>Publié {{setTimeToMoment(post?.createdOn)}}</p>
+                        </div>
                         </div>
                         <!-- <p class="post-content" [innerHTML]="post.content" ></p> -->
                         <button> <a class="read-article" type="button" routerLink="/post/{{post.id}}">Lire l'article</a></button>
                         <button> <a class="read-article" type="button" (click)="deletePost(post.id)">Supprimer</a></button>
                         <!-- <button> <a class="read-article" type="button" (click)="updatePost(post.id)">Modifier</a></button> -->
                         <button> <a class="read-article" type="button" routerLink="/update-post/{{post.id}}">Modifier</a></button>
-
-
-
-
-
 
                     </div>
                 </div>

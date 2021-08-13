@@ -23,6 +23,7 @@
     "@tinymce/tinymce-angular": "^4.2.4",
     "angular-common": "^0.1.0",
     "bootstrap": "^5.0.2",
+    "moment": "^2.29.1",
     "ngx-webstorage": "^8.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

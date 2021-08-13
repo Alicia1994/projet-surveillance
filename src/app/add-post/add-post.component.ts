@@ -21,11 +21,9 @@ export class AddPostComponent implements OnInit {
   constructor(private addpostService: AddPostService, private router: Router) {
     this.addPostForm = new FormGroup({});
     this.post = {
-      id: 0,
       content: '',
       title: '',
-      username: '',
-      // created_on: ''  JE VEUX AJOUTER LA DATE
+      username: ''
     }
   }
 
