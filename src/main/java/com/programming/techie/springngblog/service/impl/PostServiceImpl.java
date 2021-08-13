@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.time.Instant;
 import java.util.List;
 
@@ -29,11 +30,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> showAllPosts() {
         List<Post> posts = postRepository.findAll();
+
         return posts.stream().map(this::mapFromPostToDto).collect(toList());
     }
 
     @Override
     public void createPost(PostDto postDto) {
+
         Post post = mapFromDtoToPost(postDto);
         postRepository.save(post);
     }
@@ -62,6 +65,7 @@ public class PostServiceImpl implements PostService {
         postDto.setTitle(post.getTitle());
         postDto.setContent(post.getContent());
         postDto.setUsername(post.getUsername());
+        postDto.setCreatedOn(post.getCreatedOn());
         return postDto;
     }
 
@@ -70,9 +74,7 @@ public class PostServiceImpl implements PostService {
         post.setTitle(postDto.getTitle());
         post.setContent(postDto.getContent());
         User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
-        post.setCreatedOn(Instant.now());
         post.setUsername(loggedInUser.getUsername());
-        post.setUpdatedOn(Instant.now());
         return post;
     }
 }

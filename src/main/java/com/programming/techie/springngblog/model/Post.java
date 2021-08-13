@@ -7,13 +7,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import java.sql.Date;
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,15 +23,23 @@ public class Post {
     @NotBlank
     @Column
     private String title;
+    @Column
+    @NotBlank
+    private String username;
     @Lob
     @Column
     @NotEmpty
     private String content;
+    @Column(name = "created_on")
+    //private Date createdOn;
+    private LocalDateTime createdOn;
     @Column
-    private Instant createdOn;
-    @Column
-    private Instant updatedOn;
-    @Column
-    @NotBlank
-    private String username;
+    private Date updatedOn;
+
+    public Post(){
+        this.createdOn = LocalDateTime.now();
+       //this.createdOn = new Date(System.currentTimeMillis());
+    }
+
+
 }
