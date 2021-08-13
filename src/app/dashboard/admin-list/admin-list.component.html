@@ -1,9 +1,9 @@
 <div class="container">
-    <div *ngIf="users$ | async as users">
+    <div *ngIf="admins$ | async as admins">
 
     <h1>Mon tableau de bord ADMINS</h1>
 
-    <div class="no-article" *ngIf="users.length == 0; else block">
+    <div class="no-article" *ngIf="admins.length == 0; else block">
 
         <p>Aucun administrateur enregistré !</p>
 
@@ -21,19 +21,19 @@
                 <!-- <th>Date de création</th> -->
         </thead>
     
-        <tr *ngFor="let user of users">
+        <tr *ngFor="let admin of admins">
     <!-- (click)=addToAnotherTable(i) -->
             <td>
-                <span>{{user.id}}</span>
+                <span>{{admin.id}}</span>
             </td>
             <td>
-                <span>{{user.email}}</span>
+                <span>{{admin.email}}</span>
             </td>
             <!-- <td>
                 <span>{{user.password}}</span>
             </td> -->
             <td>
-                <span>{{user.username}}</span>
+                <span>{{admin.username}}</span>
             </td>
             <td>
                     <button>

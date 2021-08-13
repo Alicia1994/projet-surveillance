@@ -11,14 +11,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class AdminListComponent implements OnInit {
 
-  userSub : Subscription;
-  users$: Observable<Array<User>>;
+  admins$: Observable<Array<User>>;
 
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    // this.users$ = this.userService.findAllAdmin();
+     this.admins$ = this.userService.findAllAdmin();
   }
+
+
 
 }
