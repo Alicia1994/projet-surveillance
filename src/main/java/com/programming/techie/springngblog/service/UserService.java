@@ -1,6 +1,8 @@
 package com.programming.techie.springngblog.service;
 
+import com.programming.techie.springngblog.common.UserConstant;
 import com.programming.techie.springngblog.exception.PostNotFoundException;
+import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -21,6 +23,12 @@ public class UserService {
     public User getUserById(Long id){
         return userRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
+
+    public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
+
+        return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
+    }
+
 
   /*  public void deleteSinglePost(Long id){
         com.programming.techie.springngblog.model.User user = userRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));

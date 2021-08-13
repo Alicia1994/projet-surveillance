@@ -28,10 +28,10 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-  /*  @GetMapping("")
+    @GetMapping("/admin")
     public Iterable<User> listAdmin() {
-        return userService.getAllAdmins();
-    }*/
+        return userService.getAllAdmin();
+    }
 
 
    /* @GetMapping("/{id}")

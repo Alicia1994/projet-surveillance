@@ -1,4 +1,4 @@
-package com.programming.techie.springngblog.model;
+/*package com.programming.techie.springngblog.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +20,4 @@ public class Role {
     @Column(length = 20)
     private String name;
 
-}
+}*/
