@@ -38,7 +38,12 @@ public class UserController {
     public User username(@PathVariable String username) { return  userServiceImpl.getUserByUsername(username);}
 
     @DeleteMapping("/{id}")
-    public void deletePost(@PathVariable Long id) {
+    public void deleteUser(@PathVariable Long id) {
+        userServiceImpl.deleteUser(id);
+    }
+
+    @DeleteMapping("/admin/{id}")
+    public void deleteAdmin(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
     }
 
