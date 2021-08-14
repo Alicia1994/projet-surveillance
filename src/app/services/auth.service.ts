@@ -68,6 +68,11 @@ export class AuthService {
       return null;
     }
 
+    getUserUsername(){
+     return this.localStorageService.retrieve("username") != null;
+      
+    }
+
 
 
     isAuthenticated(): Boolean{

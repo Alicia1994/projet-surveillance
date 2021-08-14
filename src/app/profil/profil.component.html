@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" div *ngIf="user$ | async as user">
 
 <div class="title">
     <h1> Mon profil</h1>
@@ -7,17 +7,17 @@
 <div class="infos-user">
 
 <div class="info">
-    <p> Mon pseudo : <span>Alicia1994</span></p>
+    <p> Mon pseudo : <span>{{user.username}}</span></p>
     <button class="update">Modifier</button>
 </div>
 
 <div class="info">
-    <p> Mon e-mail : <span>aliciaderradji@live.fr</span></p>
+    <p> Mon e-mail : <span>{{user.email}}</span></p>
     <button class="update">Modifier</button>
 </div>
 
 <div class="info">
-    <p> Mon mot de passe : <span>Hhjsfjklaj</span></p>
+    <p> Mon mot de passe : <span>{{user.password}}</span></p>
     <button class="update">Modifier</button>
 </div>
 </div>

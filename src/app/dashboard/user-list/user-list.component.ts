@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    this.users$ = this.userService.findAll();
+    this.users$ = this.userService.findAllUsers();
     console.log("okokok");
   }
 
