@@ -7,6 +7,8 @@ import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -29,8 +31,14 @@ public class UserServiceImpl {
         return userRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
     }
 
-    public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
+    public void deleteUser(Long id){
+       userRepository.deleteById(id);
+    }
 
+
+
+
+    public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }
 
