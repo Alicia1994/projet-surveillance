@@ -5,9 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+@AllArgsConstructor
 @Data
 @Entity
 @Table(name = "users"
@@ -17,7 +19,6 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "email")
         }*/
 )
-
 
 public class User {
 
@@ -30,57 +31,13 @@ public class User {
     private String password;
     @Column
     private String email;
+
+    private LocalDateTime dateAccount;
     private String role;
 
-    public User(Long id, String username, String password, String email, String roles) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.role = roles;
+    public User(){
+        this.dateAccount = LocalDateTime.now();
     }
 
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRoles() {
-        return role;
-    }
-
-    public void setRoles(String role) {
-        this.role = role;
-    }
 
 }
