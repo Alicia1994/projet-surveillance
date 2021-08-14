@@ -3,7 +3,6 @@ package com.programming.techie.springngblog.security.jwt;
         import com.programming.techie.springngblog.exception.PostNotFoundException;
         import com.programming.techie.springngblog.exception.SpringBlogException;
         import com.programming.techie.springngblog.repository.UserRepository;
-        import com.programming.techie.springngblog.security.service.UserDetailsImpl;
         import io.jsonwebtoken.Claims;
         import io.jsonwebtoken.Jwts;
         import org.modelmapper.ModelMapper;
@@ -46,7 +45,7 @@ public class JwtProvider {
     }
 
     public String generateToken(Authentication authentication) {
-        UserDetailsImpl principal = (UserDetailsImpl) authentication.getPrincipal();
+        User principal = (User) authentication.getPrincipal();
 
         com.programming.techie.springngblog.model.User user =
                 userRepository.findByUsername(principal.getUsername()).get();
@@ -55,7 +54,6 @@ public class JwtProvider {
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())
-                .claim("id", principal.getId())
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .claim("role", user.getRoles())
                 .compact();

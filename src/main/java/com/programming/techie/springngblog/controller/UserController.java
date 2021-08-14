@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("/{id}")
     public User user(@PathVariable long id) { return  userServiceImpl.getUserById(id);}
 
-    @GetMapping("/{username}")
+    @GetMapping("name/{username}")
     public User username(@PathVariable String username) { return  userServiceImpl.getUserByUsername(username);}
 
 
