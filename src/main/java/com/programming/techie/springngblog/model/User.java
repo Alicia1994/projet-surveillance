@@ -12,12 +12,11 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 @Entity
-@Table(name = "users"
-       /* ,
+@Table(name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "username"),
                 @UniqueConstraint(columnNames = "email")
-        }*/
+        }
 )
 
 public class User {

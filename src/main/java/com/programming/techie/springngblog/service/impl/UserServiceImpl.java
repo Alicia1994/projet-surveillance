@@ -35,9 +35,6 @@ public class UserServiceImpl {
        userRepository.deleteById(id);
     }
 
-
-
-
     public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }

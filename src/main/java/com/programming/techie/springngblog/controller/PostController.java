@@ -2,6 +2,7 @@ package com.programming.techie.springngblog.controller;
 
 import com.programming.techie.springngblog.dto.PostDto;
 import com.programming.techie.springngblog.model.Post;
+import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.service.PostService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class PostController {
 
 
     @PostMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity createPost(@RequestBody PostDto postDto) {
         postService.createPost(postDto);
         return new ResponseEntity(HttpStatus.OK);
@@ -44,10 +45,14 @@ public class PostController {
     }
 
     @PutMapping
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
         Post post = postService.updateSinglePost(postDto);
         return new ResponseEntity(post, HttpStatus.OK);
     }
+
+    @GetMapping("/name/{username}")
+    public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}
+
 
 }

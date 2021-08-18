@@ -1,22 +1,23 @@
 package com.programming.techie.springngblog.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 public class RegisterRequest {
 
-   /* @NotBlank
-    @Size(min = 3, max = 20)*/
+    @NotBlank
+    @Size(min = 3, max = 20)
     private String username;
 
-  /*  @NotBlank
+    @NotBlank
     @Size(max = 50)
-    @Email*/
+    @Email
     private String email;
 
-/*  private Set<String> role;*/
-
-   /* @NotBlank
-    @Size(min = 6, max = 40)*/
+    @NotBlank
+    @Size(min = 6, max = 40)
     private String password;
 
     public String getUsername() {

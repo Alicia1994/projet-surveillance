@@ -34,7 +34,7 @@ public class UserController {
     @GetMapping("/{id}")
     public User user(@PathVariable long id) { return  userServiceImpl.getUserById(id);}
 
-    @GetMapping("name/{username}")
+    @GetMapping("/name/{username}")
     public User username(@PathVariable String username) { return  userServiceImpl.getUserByUsername(username);}
 
     @DeleteMapping("/{id}")
@@ -48,7 +48,12 @@ public class UserController {
     }
 
 
-   /* @PostMapping("/{id}/infos")
+    @GetMapping("/admin")
+    public Iterable<User> listAdmin() {
+        return userServiceImpl.getAllAdmin();
+    }
+
+      /* @PostMapping("/{id}/infos")
     public ResponseEntity<User> addUserDetails(@PathVariable("id") Long id, @RequestBody User user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
@@ -61,12 +66,6 @@ public class UserController {
         }*/
     //}
 
-
-
-    @GetMapping("/admin")
-    public Iterable<User> listAdmin() {
-        return userServiceImpl.getAllAdmin();
-    }
 
 
    /* @GetMapping("/{id}")

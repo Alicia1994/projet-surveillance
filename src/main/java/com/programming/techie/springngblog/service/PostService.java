@@ -11,6 +11,8 @@ public interface PostService {
 
     List<PostDto> showAllPosts();
 
+    Post getPostByUsername(String Username);
+
     void createPost(PostDto postDto);
 
     PostDto readSinglePost(Long id);

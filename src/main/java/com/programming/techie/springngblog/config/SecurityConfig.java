@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/create/**").hasAuthority("ADMIN")*/
                 .antMatchers("/api/auth/**")
                 .permitAll()
-                .antMatchers("/api/posts/all")
+                .antMatchers("/api/posts/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

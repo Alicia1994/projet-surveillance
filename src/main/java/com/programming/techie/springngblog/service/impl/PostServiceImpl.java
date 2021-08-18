@@ -59,6 +59,10 @@ public class PostServiceImpl implements PostService {
         return postRepository.save(post);
     }
 
+    public Post getPostByUsername(String username){
+        return postRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
+    }
+
     private PostDto mapFromPostToDto(Post post) {
         PostDto postDto = new PostDto();
         postDto.setId(post.getId());
