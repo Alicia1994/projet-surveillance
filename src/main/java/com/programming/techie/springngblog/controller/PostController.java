@@ -20,9 +20,8 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-
     @PostMapping
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity createPost(@RequestBody PostDto postDto) {
         postService.createPost(postDto);
         return new ResponseEntity(HttpStatus.OK);
@@ -39,20 +38,21 @@ public class PostController {
     }
 
     @DeleteMapping("/{id}")
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deletePost(@PathVariable Long id) {
         postService.deleteSinglePost(id);
     }
 
+
     @PutMapping
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
         Post post = postService.updateSinglePost(postDto);
         return new ResponseEntity(post, HttpStatus.OK);
     }
 
-    @GetMapping("/name/{username}")
-    public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}
+   /* @GetMapping("/name/{username}")
+    public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}*/
 
 
 }

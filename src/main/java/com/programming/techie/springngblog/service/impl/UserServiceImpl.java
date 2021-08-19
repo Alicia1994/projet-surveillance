@@ -38,10 +38,4 @@ public class UserServiceImpl {
     public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }
-
-
-  /*  public void deleteSinglePost(Long id){
-        com.programming.techie.springngblog.model.User user = userRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));
-        userRepository.delete(user);
-    }*/
 }

@@ -26,6 +26,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    /* HANDLE USERS */
     @GetMapping("")
     public Iterable<User> listUser() {
         return userServiceImpl.getAllUsers();
@@ -42,11 +43,11 @@ public class UserController {
         userServiceImpl.deleteUser(id);
     }
 
+   /* HANDLE ADMINS */
     @DeleteMapping("/admin/{id}")
     public void deleteAdmin(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
     }
-
 
     @GetMapping("/admin")
     public Iterable<User> listAdmin() {
@@ -66,56 +67,10 @@ public class UserController {
         }*/
     //}
 
-
-
-   /* @GetMapping("/{id}")
-    public User user(@PathVariable long id) { return  userService.getUserById(id);}
-
-    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('MODERATOR')");
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        userService.deleteSinglePost(id);
-    }
-*/
-
-/*
-
-    @GetMapping("/{id}")
-    public User user(@PathVariable long id) { return  userDetailsServiceImpl.getUserById(id);}
-*/
-
   /*  @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody UserDto userDto ) {
         User user = userDetailsServiceImpl.updateSingleUser(userDto);
         return new ResponseEntity(user, HttpStatus.OK);
-    }*/
-
-/*
-    @GetMapping("/{id}")
-    public User user(@PathVariable long id) { return  userDetailsServiceImpl.getUserById(id);}*/
-
-/*
-
-
-
-    @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> listUsers = userService.findAllUsers();
-        return new ResponseEntity<>(listUsers, HttpStatus.OK);
-    }
-
-*/
-/*
-    @GetMapping("/{id}")
-    public ResponseEntity <User> getById(@PathVariable Long id) {
-        User user = userService.findById(id);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<User> deleteUser(@PathVariable Long id){
-        userService.deleteUserById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
     }*/
 
 }

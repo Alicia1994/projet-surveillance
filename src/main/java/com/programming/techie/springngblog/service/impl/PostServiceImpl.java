@@ -30,13 +30,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostDto> showAllPosts() {
         List<Post> posts = postRepository.findAll();
-
         return posts.stream().map(this::mapFromPostToDto).collect(toList());
     }
 
     @Override
     public void createPost(PostDto postDto) {
-
         Post post = mapFromDtoToPost(postDto);
         postRepository.save(post);
     }
@@ -48,15 +46,15 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deleteSinglePost(Long id){
-        Post post = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));
-        postRepository.delete(post);
-    }
-
-    @Override
     public Post updateSinglePost(PostDto postDto){
         Post post = modelMapper.map(postDto, Post.class);
         return postRepository.save(post);
+    }
+
+    @Override
+    public void deleteSinglePost(Long id){
+        Post post = postRepository.findById(id).orElseThrow(() -> new PostNotFoundException("For id " + id));
+        postRepository.delete(post);
     }
 
     public Post getPostByUsername(String username){

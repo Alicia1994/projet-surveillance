@@ -32,6 +32,7 @@ public class User {
     private String email;
 
     private LocalDateTime dateAccount;
+
     private String role;
 
     public User(){
