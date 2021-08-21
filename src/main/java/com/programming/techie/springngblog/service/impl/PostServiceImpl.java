@@ -4,6 +4,7 @@ import com.programming.techie.springngblog.dto.PostDto;
 import com.programming.techie.springngblog.exception.PostNotFoundException;
 import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.repository.PostRepository;
+import com.programming.techie.springngblog.repository.UserRepository;
 import com.programming.techie.springngblog.service.AuthService;
 import com.programming.techie.springngblog.service.PostService;
 import org.modelmapper.ModelMapper;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 @Service
@@ -25,6 +27,8 @@ public class PostServiceImpl implements PostService {
     private AuthService authService;
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private UserRepository userRepository;
     private ModelMapper modelMapper = new ModelMapper();
 
     @Override
@@ -60,6 +64,12 @@ public class PostServiceImpl implements PostService {
     public Post getPostByUsername(String username){
         return postRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
     }
+
+   /* @Override
+    public List<Post> findPostsByUserId(Long id) {
+        Optional<com.programming.techie.springngblog.model.User> optionalUser = userRepository.findById(id);
+        return optionalUser.get().getPostList();
+    }*/
 
     private PostDto mapFromPostToDto(Post post) {
         PostDto postDto = new PostDto();

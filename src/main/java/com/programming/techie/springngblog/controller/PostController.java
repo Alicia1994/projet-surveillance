@@ -43,13 +43,20 @@ public class PostController {
         postService.deleteSinglePost(id);
     }
 
-
     @PutMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
         Post post = postService.updateSinglePost(postDto);
         return new ResponseEntity(post, HttpStatus.OK);
     }
+
+/*    @GetMapping("/{id}/user")
+            public ResponseEntity<List<Post>> getPostByUserId(@PathVariable("id") Long id){
+        List<Post> listPosts = postService.findPostsByUserId(id);
+        return new ResponseEntity<>(listPosts, HttpStatus.OK);
+    }*/
+
+
 
    /* @GetMapping("/name/{username}")
     public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}*/

@@ -4,8 +4,10 @@ import com.programming.techie.springngblog.dto.LoginRequest;
 import com.programming.techie.springngblog.dto.RegisterRequest;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
+import com.programming.techie.springngblog.security.MessageResponse;
 import com.programming.techie.springngblog.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -33,6 +35,7 @@ public class AuthService {
     RoleRepository roleRepository;*/
 
     public void signup(RegisterRequest registerRequest) {
+
         User user = new User();
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());

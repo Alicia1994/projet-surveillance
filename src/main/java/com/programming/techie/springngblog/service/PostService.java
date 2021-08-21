@@ -20,4 +20,9 @@ public interface PostService {
     void deleteSinglePost(Long id);
 
     Post updateSinglePost(PostDto postDto);
+
+/*
+    List<Post> findPostsByUserId(Long id);
+*/
+
 }
