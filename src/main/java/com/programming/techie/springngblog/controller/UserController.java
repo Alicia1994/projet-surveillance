@@ -39,17 +39,20 @@ public class UserController {
     public User username(@PathVariable String username) { return  userServiceImpl.getUserByUsername(username);}
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteUser(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
     }
 
    /* HANDLE ADMINS */
     @DeleteMapping("/admin/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteAdmin(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
     }
 
     @GetMapping("/admin")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Iterable<User> listAdmin() {
         return userServiceImpl.getAllAdmin();
     }
