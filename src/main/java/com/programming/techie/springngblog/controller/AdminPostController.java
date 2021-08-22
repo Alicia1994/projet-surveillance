@@ -31,6 +31,7 @@ public class AdminPostController {
     @PutMapping
     public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
         Post post = postService.updateSinglePost(postDto);
+
         return new ResponseEntity(post, HttpStatus.OK);
     }
 

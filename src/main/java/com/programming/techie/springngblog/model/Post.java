@@ -3,6 +3,10 @@ package com.programming.techie.springngblog.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -30,16 +34,26 @@ public class Post {
     @Column
     @NotEmpty
     private String content;
-    @Column(name = "created_on")
-    //private Date createdOn;
+    @Column(name = "created_on", updatable = false, nullable = false)
+    @CreationTimestamp
     private LocalDateTime createdOn;
-    @Column
-    private Date updatedOn;
+    @Column(name = "updated_on")
+    @UpdateTimestamp
+    private LocalDateTime updatedOn;
 
     public Post(){
-        this.createdOn = LocalDateTime.now();
-       //this.createdOn = new Date(System.currentTimeMillis());
     }
+
+    @PreUpdate
+    @PrePersist
+    public void updateTimesStamps() {
+        this.updatedOn = LocalDateTime.now();
+        if (this.createdOn == null ){
+            this.createdOn = LocalDateTime.now();
+        }
+
+    }
+
 
 
 }

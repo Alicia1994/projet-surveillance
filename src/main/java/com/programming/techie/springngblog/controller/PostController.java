@@ -31,14 +31,11 @@ public class PostController {
         return new ResponseEntity<>(postService.readSinglePost(id), HttpStatus.OK);
     }
 
-
-/*    @GetMapping("/{id}/user")
+ /*   @GetMapping("/{id}/user")
             public ResponseEntity<List<Post>> getPostByUserId(@PathVariable("id") Long id){
         List<Post> listPosts = postService.findPostsByUserId(id);
         return new ResponseEntity<>(listPosts, HttpStatus.OK);
     }*/
-
-
 
    /* @GetMapping("/name/{username}")
     public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}*/
