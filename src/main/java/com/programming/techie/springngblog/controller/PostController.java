@@ -4,6 +4,7 @@ import com.programming.techie.springngblog.dto.PostDto;
 import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.service.PostService;
+import com.programming.techie.springngblog.service.impl.UserServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +13,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/posts")
@@ -20,6 +22,8 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private UserServiceImpl userService;
 
     @GetMapping("/all")
     public ResponseEntity<List<PostDto>> showAllPosts() {
@@ -31,11 +35,21 @@ public class PostController {
         return new ResponseEntity<>(postService.readSinglePost(id), HttpStatus.OK);
     }
 
- /*   @GetMapping("/{id}/user")
-            public ResponseEntity<List<Post>> getPostByUserId(@PathVariable("id") Long id){
-        List<Post> listPosts = postService.findPostsByUserId(id);
-        return new ResponseEntity<>(listPosts, HttpStatus.OK);
-    }*/
+
+
+    @GetMapping("/{username}")
+            public Post getPostByUsername(@PathVariable("username") final String username){
+        Optional<Post> post = postService.getPost(username);
+        if (post.isPresent()){
+            return post.get();
+        } else {
+            return null;
+        }
+     /*   User user = userService.getUserByUsername(username);
+        return new ResponseEntity<>( user.getPostList(), HttpStatus.OK);*/
+    }
+
+
 
    /* @GetMapping("/name/{username}")
     public Post username(@PathVariable String username) { return postService.getPostByUsername(username);}*/

@@ -2,16 +2,20 @@ package com.programming.techie.springngblog.service;
 
 import com.programming.techie.springngblog.dto.PostDto;
 import com.programming.techie.springngblog.model.Post;
+import com.programming.techie.springngblog.model.User;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PostService {
     //findById findAll Create Remove
 
     List<PostDto> showAllPosts();
 
-    Post getPostByUsername(String Username);
+    Optional<Post> getPost(String username);
+
+    //User savePost(Post post, String Username);
 
     void createPost(PostDto postDto);
 
@@ -21,8 +25,6 @@ public interface PostService {
 
     Post updateSinglePost(PostDto postDto);
 
-/*
-    List<Post> findPostsByUserId(Long id);
-*/
+   // List<Post> findPostsByUsername(String username);
 
 }

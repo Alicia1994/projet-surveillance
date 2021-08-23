@@ -37,11 +37,31 @@ public class PostServiceImpl implements PostService {
         return posts.stream().map(this::mapFromPostToDto).collect(toList());
     }
 
-    @Override
+ /*   @Override
     public void createPost(PostDto postDto) {
         Post post = mapFromDtoToPost(postDto);
         postRepository.save(post);
     }
+    */
+
+        @Override
+    public void createPost(PostDto postDto) {
+        Post post = mapFromDtoToPost(postDto);
+        postRepository.save(post);
+    }
+
+    /*    @Override
+    public com.programming.techie.springngblog.model.User savePost(Post post, String username){
+        Optional<com.programming.techie.springngblog.model.User> userOptional = userRepository.findByUsername(username);
+        com.programming.techie.springngblog.model.User user = null;
+        if(userOptional.isPresent()){
+            user = userOptional.get();
+            post.setUser(user);
+            user.getPosts().add(post);
+            return userRepository.save(user);
+        }
+        return user;
+    }*/
 
     @Override
     public PostDto readSinglePost(Long id) {
@@ -61,13 +81,30 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(post);
     }
 
-    public Post getPostByUsername(String username){
-        return postRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
+
+    public Optional<Post> getPost(String username){
+        return postRepository.findByUsername(username);
     }
 
-   /* @Override
-    public List<Post> findPostsByUserId(Long id) {
-        Optional<com.programming.techie.springngblog.model.User> optionalUser = userRepository.findById(id);
+
+
+
+
+  /*  public Post getPostsByUsername(String username){
+        return postRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
+    }*/
+
+/*    @Override
+    public List<Post> findPostsByUsername(String username) {
+        Optional<com.programming.techie.springngblog.model.User> optionalUser = userRepository.findByUsername(username);
+
+        User user =null;
+
+            user.getPostList().add(book);
+            userRepo.save(user);
+        }
+        return user;
+
         return optionalUser.get().getPostList();
     }*/
 

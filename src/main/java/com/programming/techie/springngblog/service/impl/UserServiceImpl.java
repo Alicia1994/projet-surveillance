@@ -11,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl {
 
@@ -38,4 +40,17 @@ public class UserServiceImpl {
     public Iterable<com.programming.techie.springngblog.model.User> getAllAdmin() {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }
+
+/*
+    public User addUserInPost(Long id, Post post) {
+        Optional<User> userOptional = userRepository.findById(id);
+        User user =null;
+        if (userOptional.isPresent()) {
+            user = userOptional.get();
+            user.getPostList().add(post);
+            userRepository.save(user);
+        }
+        return user;
+    }*/
+
 }

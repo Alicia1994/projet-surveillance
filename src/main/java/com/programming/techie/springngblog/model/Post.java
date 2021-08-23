@@ -1,5 +1,6 @@
 package com.programming.techie.springngblog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,6 +41,11 @@ public class Post {
     @Column(name = "updated_on")
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
+    @ManyToOne
+    @JsonIgnoreProperties("posts")
+    private User user;
+
 
     public Post(){
     }

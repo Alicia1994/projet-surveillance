@@ -37,14 +37,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    //AUTHORIZATION
+    //****** AUTHORIZATION ******
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-              /*  .antMatchers("/delete/**").hasAuthority("ADMIN")
-                .antMatchers("/edit/**").hasAuthority("ADMIN")
-                .antMatchers("/create/**").hasAuthority("ADMIN")*/
                 .antMatchers("/api/auth/**")
                 .permitAll()
                 .antMatchers("/api/posts/**")

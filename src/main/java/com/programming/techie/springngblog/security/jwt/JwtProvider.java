@@ -1,29 +1,18 @@
 package com.programming.techie.springngblog.security.jwt;
 
-        import com.programming.techie.springngblog.exception.PostNotFoundException;
         import com.programming.techie.springngblog.exception.SpringBlogException;
         import com.programming.techie.springngblog.repository.UserRepository;
         import io.jsonwebtoken.Claims;
         import io.jsonwebtoken.Jwts;
-        import org.modelmapper.ModelMapper;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.security.core.Authentication;
-        import org.springframework.security.core.GrantedAuthority;
-        import org.springframework.security.core.authority.SimpleGrantedAuthority;
         import org.springframework.security.core.userdetails.User;
-        import org.springframework.security.core.userdetails.UserDetails;
-        import org.springframework.security.core.userdetails.UserDetailsService;
-        import org.springframework.security.core.userdetails.UsernameNotFoundException;
         import org.springframework.stereotype.Service;
-        import org.springframework.transaction.annotation.Transactional;
-
         import javax.annotation.PostConstruct;
         import java.io.IOException;
         import java.io.InputStream;
         import java.security.*;
         import java.security.cert.CertificateException;
-        import java.util.Collection;
-        import java.util.Collections;
         import java.util.Date;
 
 @Service
@@ -46,11 +35,9 @@ public class JwtProvider {
 
     public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
-
         com.programming.techie.springngblog.model.User user =
                 userRepository.findByUsername(principal.getUsername()).get();
-        // LONGUEUR A MODIFIER POUR L'EXPIRATION DU TOKEN
-        long jwtExpirationMs = 800000000;
+        long jwtExpirationMs = 60000;
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())
@@ -85,7 +72,6 @@ public class JwtProvider {
                 .setSigningKey(getPublickey())
                 .parseClaimsJws(token)
                 .getBody();
-
         return claims.getSubject();
     }
 

@@ -1,10 +1,11 @@
 package com.programming.techie.springngblog.controller;
 
 
+import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
 import com.programming.techie.springngblog.security.service.UserDetailsImpl;
-import com.programming.techie.springngblog.service.UserService;
+import com.programming.techie.springngblog.security.service.UserDetailsServiceImpl;
 import com.programming.techie.springngblog.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,18 +58,22 @@ public class UserController {
         return userServiceImpl.getAllAdmin();
     }
 
-      /* @PostMapping("/{id}/infos")
-    public ResponseEntity<User> addUserDetails(@PathVariable("id") Long id, @RequestBody User user) {
+/*
+    @PostMapping("/{id}/post")
+    public ResponseEntity<User> addUserInPost(@PathVariable("id") Long id, @RequestBody Post post) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-        Long TokenUserId = userDetails.getId();
+        UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
+        Long TokenUserId = userDetailsImpl.getId();
         if(id == TokenUserId ) {
-            userService.addUserDetails(id, user);
+            userServiceImpl.addUserInPost(id, post);
             return new ResponseEntity<>(HttpStatus.OK);
         }else {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }*/
-    //}
+        }
+*/
+
+
+    }
 
   /*  @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody UserDto userDto ) {
@@ -76,4 +81,3 @@ public class UserController {
         return new ResponseEntity(user, HttpStatus.OK);
     }*/
 
-}

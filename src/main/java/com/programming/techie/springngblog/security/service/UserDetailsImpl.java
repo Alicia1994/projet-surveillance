@@ -24,10 +24,6 @@ public class UserDetailsImpl implements UserDetails {
     @JsonIgnore
     private String password;
 
-/*
-    private List<GrantedAuthority> authorities;
-*/
-
     private Collection<? extends GrantedAuthority> authorities;
 
     public UserDetailsImpl(User user) {
@@ -58,7 +54,6 @@ public class UserDetailsImpl implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
-
     public Long getId() {
         return id;
     }
