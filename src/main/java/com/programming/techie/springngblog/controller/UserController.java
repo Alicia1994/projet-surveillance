@@ -58,20 +58,20 @@ public class UserController {
         return userServiceImpl.getAllAdmin();
     }
 
-/*
-    @PostMapping("/{id}/post")
-    public ResponseEntity<User> addUserInPost(@PathVariable("id") Long id, @RequestBody Post post) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetailsImpl userDetailsImpl = (UserDetailsImpl) authentication.getPrincipal();
-        Long TokenUserId = userDetailsImpl.getId();
-        if(id == TokenUserId ) {
-            userServiceImpl.addUserInPost(id, post);
-            return new ResponseEntity<>(HttpStatus.OK);
-        }else {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-*/
 
+    @PostMapping("/{username}")
+    public ResponseEntity<User> addUserInPost(@PathVariable("username") String username, @RequestBody Post post) {
+        //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+       // UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+       // String TokenUserUsername = userDetails.getUsername();
+        /*if(username == TokenUserUsername ) {*/
+            userServiceImpl.addUserInPost(username, post);
+            return new ResponseEntity<>(HttpStatus.OK);
+       /* }else {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }*/
+
+    }
 
     }
 

@@ -1,6 +1,7 @@
 package com.programming.techie.springngblog.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.programming.techie.springngblog.model.Categorie;
 import com.programming.techie.springngblog.model.Post;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,8 @@ public class PostDto {
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH-mm")
     @Column
     private LocalDateTime updatedOn;
+
+    private Categorie categorie;
 
 
 

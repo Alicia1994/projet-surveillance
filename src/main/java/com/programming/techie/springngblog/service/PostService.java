@@ -13,7 +13,7 @@ public interface PostService {
 
     List<PostDto> showAllPosts();
 
-    Optional<Post> getPost(String username);
+    //Optional<Post> getPost(String username);
 
     //User savePost(Post post, String Username);
 
@@ -25,6 +25,6 @@ public interface PostService {
 
     Post updateSinglePost(PostDto postDto);
 
-   // List<Post> findPostsByUsername(String username);
+   //List<Post> findPostsByUsername(String username);
 
 }

@@ -41,16 +41,15 @@ public class UserServiceImpl {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }
 
-/*
-    public User addUserInPost(Long id, Post post) {
-        Optional<User> userOptional = userRepository.findById(id);
-        User user =null;
+    public User addUserInPost(String username, Post post) {
+        Optional<User> userOptional = userRepository.findByUsername(username);
+        User user = null;
         if (userOptional.isPresent()) {
             user = userOptional.get();
             user.getPostList().add(post);
             userRepository.save(user);
         }
         return user;
-    }*/
+    }
 
 }

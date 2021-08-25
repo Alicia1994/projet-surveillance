@@ -37,31 +37,17 @@ public class PostServiceImpl implements PostService {
         return posts.stream().map(this::mapFromPostToDto).collect(toList());
     }
 
- /*   @Override
-    public void createPost(PostDto postDto) {
-        Post post = mapFromDtoToPost(postDto);
-        postRepository.save(post);
-    }
-    */
-
         @Override
     public void createPost(PostDto postDto) {
-        Post post = mapFromDtoToPost(postDto);
+
+      //  Post post = mapFromDtoToPost(postDto);
+
+
+        Post post = modelMapper.map(postDto, Post.class);
+            User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
+            post.setUsername(loggedInUser.getUsername());
         postRepository.save(post);
     }
-
-    /*    @Override
-    public com.programming.techie.springngblog.model.User savePost(Post post, String username){
-        Optional<com.programming.techie.springngblog.model.User> userOptional = userRepository.findByUsername(username);
-        com.programming.techie.springngblog.model.User user = null;
-        if(userOptional.isPresent()){
-            user = userOptional.get();
-            post.setUser(user);
-            user.getPosts().add(post);
-            return userRepository.save(user);
-        }
-        return user;
-    }*/
 
     @Override
     public PostDto readSinglePost(Long id) {
@@ -81,14 +67,51 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(post);
     }
 
+    private PostDto mapFromPostToDto(Post post) {
+        PostDto postDto = new PostDto();
+        postDto.setId(post.getId());
+        postDto.setTitle(post.getTitle());
+        postDto.setContent(post.getContent());
+        postDto.setUsername(post.getUsername());
+        postDto.setCreatedOn(post.getCreatedOn());
+        postDto.setUpdatedOn(post.getUpdatedOn());
 
-    public Optional<Post> getPost(String username){
-        return postRepository.findByUsername(username);
+        postDto.setCategorie(post.getCategorie());
+        return postDto;
     }
 
+    private Post mapFromDtoToPost(PostDto postDto) {
+        Post post = new Post();
+        post.setTitle(postDto.getTitle());
+        post.setContent(postDto.getContent());
+        User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
+        post.setUsername(loggedInUser.getUsername());
+        post.setCategorie(post.getCategorie());
+        return post;
+    }
+}
 
 
 
+ /*   @Override
+    public List<Post> findPostsByUsername(String username) {
+        Optional<com.programming.techie.springngblog.model.User> optionalUser = userRepository.findByUsername(username);
+        return optionalUser.get().getPostList();
+    }*/
+
+
+    /*    @Override
+    public com.programming.techie.springngblog.model.User savePost(Post post, String username){
+        Optional<com.programming.techie.springngblog.model.User> userOptional = userRepository.findByUsername(username);
+        com.programming.techie.springngblog.model.User user = null;
+        if(userOptional.isPresent()){
+            user = userOptional.get();
+            post.setUser(user);
+            user.getPosts().add(post);
+            return userRepository.save(user);
+        }
+        return user;
+    }*/
 
   /*  public Post getPostsByUsername(String username){
         return postRepository.findByUsername(username).orElseThrow(IllegalArgumentException::new);
@@ -107,24 +130,3 @@ public class PostServiceImpl implements PostService {
 
         return optionalUser.get().getPostList();
     }*/
-
-    private PostDto mapFromPostToDto(Post post) {
-        PostDto postDto = new PostDto();
-        postDto.setId(post.getId());
-        postDto.setTitle(post.getTitle());
-        postDto.setContent(post.getContent());
-        postDto.setUsername(post.getUsername());
-        postDto.setCreatedOn(post.getCreatedOn());
-        postDto.setUpdatedOn(post.getUpdatedOn());
-        return postDto;
-    }
-
-    private Post mapFromDtoToPost(PostDto postDto) {
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setContent(postDto.getContent());
-        User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
-        post.setUsername(loggedInUser.getUsername());
-        return post;
-    }
-}

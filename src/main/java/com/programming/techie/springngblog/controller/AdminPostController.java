@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/admin")
@@ -33,5 +35,11 @@ public class AdminPostController {
 
         return new ResponseEntity(post, HttpStatus.OK);
     }
+
+/*    @GetMapping("/{username}")
+    public ResponseEntity<List<Post>> getPostsByUsername(@PathVariable("username") String username) {
+        List<Post> listPosts = postService.findPostsByUsername(username);
+        return new ResponseEntity<>(listPosts, HttpStatus.OK);
+    }*/
 
 }
