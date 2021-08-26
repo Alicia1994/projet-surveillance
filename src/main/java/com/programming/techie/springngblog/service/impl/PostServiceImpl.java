@@ -38,7 +38,7 @@ public class PostServiceImpl implements PostService {
     }
 
         @Override
-    public void createPost(PostDto postDto) {
+    public Post createPost(PostDto postDto) {
 
       //  Post post = mapFromDtoToPost(postDto);
 
@@ -46,7 +46,7 @@ public class PostServiceImpl implements PostService {
         Post post = modelMapper.map(postDto, Post.class);
             User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
             post.setUsername(loggedInUser.getUsername());
-        postRepository.save(post);
+        return postRepository.save(post);
     }
 
     @Override

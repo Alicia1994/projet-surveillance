@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 public class Post {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,6 +37,9 @@ public class Post {
 
     @OneToOne(fetch=FetchType.EAGER)
     private Categorie categorie;
+
+    @Column(length= 45, nullable = true)
+    private String image;
 
     public Post(){
     }

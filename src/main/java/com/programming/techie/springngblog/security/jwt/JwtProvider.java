@@ -37,7 +37,7 @@ public class JwtProvider {
         User principal = (User) authentication.getPrincipal();
         com.programming.techie.springngblog.model.User user =
                 userRepository.findByUsername(principal.getUsername()).get();
-        long jwtExpirationMs = 60000;
+        long jwtExpirationMs = 600000000;
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())

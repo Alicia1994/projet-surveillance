@@ -1,6 +1,8 @@
 package com.programming.techie.springngblog.service.impl;
 
 import com.programming.techie.springngblog.common.UserConstant;
+import com.programming.techie.springngblog.dto.PostDto;
+import com.programming.techie.springngblog.dto.UserDto;
 import com.programming.techie.springngblog.exception.PostNotFoundException;
 import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
@@ -10,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.UserDataHandler;
 
 import java.util.Optional;
 
@@ -41,7 +44,15 @@ public class UserServiceImpl {
         return userRepository.findByRole(UserConstant.ADMIN_ACCESS);
     }
 
-    public User addUserInPost(String username, Post post) {
+    public User updateSingleUser(UserDto userDto){
+        User user = modelMapper.map(userDto, User.class);
+        return userRepository.save(user);
+    }
+
+}
+
+
+/*  public User addUserInPost(String username, Post post) {
         Optional<User> userOptional = userRepository.findByUsername(username);
         User user = null;
         if (userOptional.isPresent()) {
@@ -50,6 +61,4 @@ public class UserServiceImpl {
             userRepository.save(user);
         }
         return user;
-    }
-
-}
+    }*/

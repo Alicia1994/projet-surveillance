@@ -17,7 +17,7 @@ public interface PostService {
 
     //User savePost(Post post, String Username);
 
-    void createPost(PostDto postDto);
+    Post createPost(PostDto postDto);
 
     PostDto readSinglePost(Long id);
 

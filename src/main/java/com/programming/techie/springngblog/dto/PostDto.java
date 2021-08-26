@@ -29,6 +29,8 @@ public class PostDto {
     private LocalDateTime updatedOn;
 
     private Categorie categorie;
+    private String image;
+
 
 
 

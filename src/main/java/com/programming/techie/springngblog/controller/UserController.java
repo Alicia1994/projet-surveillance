@@ -1,6 +1,8 @@
 package com.programming.techie.springngblog.controller;
 
 
+import com.programming.techie.springngblog.dto.PostDto;
+import com.programming.techie.springngblog.dto.UserDto;
 import com.programming.techie.springngblog.model.Post;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
@@ -58,26 +60,28 @@ public class UserController {
         return userServiceImpl.getAllAdmin();
     }
 
+       @PutMapping
+    public ResponseEntity<User> updateUser(@RequestBody UserDto userDto ) {
+        User user = userServiceImpl.updateSingleUser(userDto);
+        return new ResponseEntity(user, HttpStatus.OK);
+    }
 
-    @PostMapping("/{username}")
+
+}
+
+
+
+
+/*    @PostMapping("/{username}")
     public ResponseEntity<User> addUserInPost(@PathVariable("username") String username, @RequestBody Post post) {
         //Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
        // UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
        // String TokenUserUsername = userDetails.getUsername();
-        /*if(username == TokenUserUsername ) {*/
+        *//*if(username == TokenUserUsername ) {*//*
             userServiceImpl.addUserInPost(username, post);
             return new ResponseEntity<>(HttpStatus.OK);
-       /* }else {
+       *//* }else {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }*/
+        }*//*
 
-    }
-
-    }
-
-  /*  @PutMapping
-    public ResponseEntity<User> updateUser(@RequestBody UserDto userDto ) {
-        User user = userDetailsServiceImpl.updateSingleUser(userDto);
-        return new ResponseEntity(user, HttpStatus.OK);
     }*/
-
