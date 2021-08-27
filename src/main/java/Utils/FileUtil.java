@@ -11,7 +11,6 @@ import java.nio.file.StandardCopyOption;
 
 public class FileUtil {
 
-
     public static void saveImages(Long id, String fileName, MultipartFile multipartFile) throws IOException {
 
         String uploadDir = "src/main/webapp/WEB-INF/post-photos/" + id;
@@ -30,6 +29,27 @@ public class FileUtil {
             throw new IOException("Could not save image files:" + fileName + ioException);
         }
 
+    }
+
+
+    public static long saveFileAndReplace(String lastFile, MultipartFile file, String newFile, long id) throws IOException {
+        String uploadDir = "src/main/webapp/WEB-INF/post-photos/" + id;
+
+        Path uploadPath = Paths.get(uploadDir + "/");
+        if (!Files.exists(uploadPath)) {
+            Files.createDirectories(uploadPath);
+        }
+        try {
+            if(lastFile != null){
+                if(!lastFile.equals(newFile)){
+                    Files.delete(uploadPath.resolve(lastFile));
+                }
+            }
+            return Files.copy(file.getInputStream(), uploadPath.resolve(newFile), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
 }

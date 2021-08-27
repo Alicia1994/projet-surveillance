@@ -32,19 +32,23 @@ public class AdminPostController {
     private PostService postService;
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@RequestPart ("post") PostDto postDto, @RequestPart("file")MultipartFile file) throws JsonParseException, IOException {
+    public ResponseEntity<Post> createPost(@RequestPart ("post") PostDto postDto, @RequestPart("file") MultipartFile file) throws JsonParseException, IOException {
 
         String fileName = "";
         String lastFile ="";
 
+
+        Post post = null;
         if (null != file){
             String [] nameExtension = Objects.requireNonNull(file.getContentType().split("/"));
             fileName = "post-name" + "." + nameExtension[1];
-            lastFile = postDto.getImage() != null ? postDto.getImage() : "";
+            //  lastFile = postDto.getImage() != null ? postDto.getImage() : "";
+
             postDto.setImage(fileName);
-            FileUtil.saveImages(postDto.getId(), fileName, file);
+            post = postService.createPost(postDto);
+            FileUtil.saveImages(post.getId(), fileName, file);
         }
-        Post post = postService.createPost(postDto);
+
         return ResponseEntity.status(HttpStatus.OK).body(post);
     }
 
@@ -54,8 +58,24 @@ public class AdminPostController {
     }
 
     @PutMapping
-    public ResponseEntity<Post> updatePost(@RequestBody PostDto postDto ) {
-        Post post = postService.updateSinglePost(postDto);
+    public ResponseEntity<Post> updatePost(@RequestPart ("post") PostDto postDto, @RequestPart(value = "file", required = false) MultipartFile file) throws JsonParseException, IOException {
+
+
+        String fileName = "";
+        String lastFile ="";
+        Post post = null;
+        if (file == null){
+            post = postService.updateSinglePost(postDto);
+        } else {
+            String [] nameExtension = Objects.requireNonNull(file.getContentType().split("/"));
+            fileName = "post-name" + "." + nameExtension[1];
+           lastFile = postDto.getImage() != null ? postDto.getImage() : "";
+
+            postDto.setImage(fileName);
+            post = postService.updateSinglePost(postDto);
+            FileUtil.saveFileAndReplace(lastFile, file, fileName, post.getId());
+
+        }
 
         return new ResponseEntity(post, HttpStatus.OK);
     }

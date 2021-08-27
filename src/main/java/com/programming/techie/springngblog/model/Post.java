@@ -38,7 +38,7 @@ public class Post {
     @OneToOne(fetch=FetchType.EAGER)
     private Categorie categorie;
 
-    @Column(length= 45, nullable = true)
+   // @Column(length= 45, nullable = true)
     private String image;
 
     public Post(){

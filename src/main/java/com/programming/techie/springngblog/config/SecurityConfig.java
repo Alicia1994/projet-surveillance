@@ -55,6 +55,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/admin/**")
                 .permitAll()
                 //.hasAuthority("ADMIN")
+                .antMatchers("/post-photos/**")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

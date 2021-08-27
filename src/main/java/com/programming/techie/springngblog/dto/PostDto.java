@@ -31,8 +31,4 @@ public class PostDto {
     private Categorie categorie;
     private String image;
 
-
-
-
-
 }

@@ -21,7 +21,7 @@ Il s’agit du fichier Prévention des atteintes à la sécurité publique (PASP
 
 « Opinions politiques » et « convictions religieuses »
 De nouvelles données pourront être renseignées dans ces fichiers. La Commission nationale de l’informatique et des libertés (CNIL), dans ses avis sur les fichiers PASP et GIPASP, note ainsi que « la rédaction de certaines catégories de données est particulièrement large ». De fait, pourront figurer dans ces fichiers « les opinions politiques » et les « convictions philosophiques et religieuses », et non plus seulement les « activités » politiques ou religieuses. Les personnes morales – en l’occurrence les associations – pourront désormais y figurer.", "admin", "2021-08-10 08:43:34.645954");
-INSERT into post (title, content, username, created_on) values ("Les drones: nouvel outil utilisé par les forces de Police", "Les drones policiers sont équipés de caméras haute définition pourvues de zoom puissants ainsi que de caméras thermiques, capables de voir en pleine nuit comme de jour.
+INSERT into post (title, content, username, created_on, image) values ("Les drones: nouvel outil utilisé par les forces de Police", "Les drones policiers sont équipés de caméras haute définition pourvues de zoom puissants ainsi que de caméras thermiques, capables de voir en pleine nuit comme de jour.
 
 Ils peuvent décoller pratiquement de n’importe où et se maintenir longtemps en vol stationnaire.
 
@@ -30,7 +30,7 @@ Depuis les airs, en volant haut et loin de sa cible, le drone policier donnera a
 Disponible pour un décollage immédiat à tout moment, le drone de la Police est rapidement sur place sans impliquer l’engagement de moyens plus importants.
 Il laisse de cette manière les hélicoptères habités de la Police libres d’intervenir pour d’autres missions, pour lesquelles le transport de personnes par les airs est indispensable.
 
-En observant d’en haut, le drone permet de limiter les risques d’exposition des agents de Police et d’épargner ainsi des vies humaines. L’avancée des unités spéciales et des équipes d’intervention est dirigée depuis le quartier général, en liaison permanente avec les pilotes des drones de la Police.", "admin", "2021-08-13 18:07:34.645954");
+En observant d’en haut, le drone permet de limiter les risques d’exposition des agents de Police et d’épargner ainsi des vies humaines. L’avancée des unités spéciales et des équipes d’intervention est dirigée depuis le quartier général, en liaison permanente avec les pilotes des drones de la Police.", "admin", "2021-08-13 18:07:34.645954", "post-name.jpeg");
 
 
 

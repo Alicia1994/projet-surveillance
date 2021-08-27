@@ -36,11 +36,6 @@ public class User {
 
     private String role;
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL
-            //, mappedBy = "user"
-    )
-    private List<Post> postList;
-
     public User(){
         this.dateAccount = LocalDateTime.now();
     }

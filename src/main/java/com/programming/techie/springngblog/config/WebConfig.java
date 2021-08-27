@@ -27,7 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("post-photos/", "/resources/").addResourceLocations("/WEB-INF/post-photos/")
+        registry.addResourceHandler("post-photos/**", "/resources/**").addResourceLocations("/WEB-INF/post-photos/")
                 .setCacheControl(CacheControl.maxAge(2, TimeUnit.HOURS).cachePublic());
     }
 
