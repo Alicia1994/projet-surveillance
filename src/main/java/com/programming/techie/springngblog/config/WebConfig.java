@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
+
     @Override
     public void addCorsMappings(CorsRegistry corsRegistry) {
         corsRegistry.addMapping("/**")
@@ -23,7 +24,6 @@ public class WebConfig implements WebMvcConfigurer {
                 .exposedHeaders("Authorization")
                 .allowCredentials(true);
     }
-
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {

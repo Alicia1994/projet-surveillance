@@ -4,10 +4,8 @@ import com.programming.techie.springngblog.dto.LoginRequest;
 import com.programming.techie.springngblog.dto.RegisterRequest;
 import com.programming.techie.springngblog.model.User;
 import com.programming.techie.springngblog.repository.UserRepository;
-import com.programming.techie.springngblog.security.MessageResponse;
 import com.programming.techie.springngblog.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,10 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.programming.techie.springngblog.common.UserConstant;
-
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class AuthService {
@@ -31,8 +26,6 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtProvider jwtProvider;
- /*   @Autowired
-    RoleRepository roleRepository;*/
 
     public void signup(RegisterRequest registerRequest) {
 
@@ -52,7 +45,6 @@ public class AuthService {
         user.setRole(UserConstant.ADMIN_ACCESS);
         userRepository.save(user);
     }
-
 
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);

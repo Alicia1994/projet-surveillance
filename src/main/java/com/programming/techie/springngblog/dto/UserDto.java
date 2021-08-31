@@ -1,16 +1,8 @@
-
-
-
 package com.programming.techie.springngblog.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.programming.techie.springngblog.model.Post;
 import lombok.Data;
-
-import javax.persistence.CascadeType;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 public class UserDto {

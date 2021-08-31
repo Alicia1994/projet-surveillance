@@ -1,7 +1,5 @@
 package com.programming.techie.springngblog.controller;
 
-
-import com.programming.techie.springngblog.dto.PostDto;
 import com.programming.techie.springngblog.model.Categorie;
 import com.programming.techie.springngblog.service.CategorieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ public class CategorieController {
 
     @Autowired
     private CategorieService categorieService;
-
 
     @GetMapping("/all")
     public ResponseEntity<List<Categorie>> showAllCategories() {

@@ -2,13 +2,8 @@ package com.programming.techie.springngblog.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @Data
@@ -31,9 +26,7 @@ public class User {
     private String password;
     @Column
     private String email;
-
     private LocalDateTime dateAccount;
-
     private String role;
 
     public User(){

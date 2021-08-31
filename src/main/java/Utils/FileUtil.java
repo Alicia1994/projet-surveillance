@@ -1,7 +1,6 @@
 package Utils;
 
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -30,7 +29,6 @@ public class FileUtil {
         }
 
     }
-
 
     public static long saveFileAndReplace(String lastFile, MultipartFile file, String newFile, long id) throws IOException {
         String uploadDir = "src/main/webapp/WEB-INF/post-photos/" + id;

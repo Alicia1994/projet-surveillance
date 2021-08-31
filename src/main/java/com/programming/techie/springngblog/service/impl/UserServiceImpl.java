@@ -52,15 +52,3 @@ public class UserServiceImpl {
     }
 
 }
-
-
-/*  public User addUserInPost(String username, Post post) {
-        Optional<User> userOptional = userRepository.findByUsername(username);
-        User user = null;
-        if (userOptional.isPresent()) {
-            user = userOptional.get();
-            user.getPostList().add(post);
-            userRepository.save(user);
-        }
-        return user;
-    }*/

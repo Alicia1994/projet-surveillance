@@ -33,11 +33,14 @@ public class JwtProvider {
         }
     }
 
+
     public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
         com.programming.techie.springngblog.model.User user =
                 userRepository.findByUsername(principal.getUsername()).get();
+        /* Handle the expiration of the token */
         long jwtExpirationMs = 6000000;
+        /* Handle the content of the token */
         return Jwts.builder()
                 .setSubject(principal.getUsername())
                 .signWith(getPrivateKey())

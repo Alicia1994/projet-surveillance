@@ -7,9 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -18,9 +15,6 @@ public class PostController {
 
     @Autowired
     private PostService postService;
-
-    @Autowired
-    private UserServiceImpl userService;
 
     @GetMapping("/all")
     public ResponseEntity<List<PostDto>> showAllPosts() {
@@ -31,14 +25,5 @@ public class PostController {
     public ResponseEntity<PostDto> getSinglePost(@PathVariable Long id) {
         return new ResponseEntity<>(postService.readSinglePost(id), HttpStatus.OK);
     }
-
-
-
- /*   @GetMapping("/{username}")
-    public ResponseEntity<List<Post>> getPostsByUsername(@PathVariable("username") String username) {
-        List<Post> listPosts = postService.findPostsByUsername(username);
-        return new ResponseEntity<>(listPosts, HttpStatus.OK);
-    }*/
-
 
     }
