@@ -71,14 +71,4 @@ public class PostServiceImpl implements PostService {
         postDto.setCategorie(post.getCategorie());
         return postDto;
     }
-/*
-    private Post mapFromDtoToPost(PostDto postDto) {
-        Post post = new Post();
-        post.setTitle(postDto.getTitle());
-        post.setContent(postDto.getContent());
-        User loggedInUser = authService.getCurrentUser().orElseThrow(() -> new IllegalArgumentException("User Not Found"));
-        post.setUsername(loggedInUser.getUsername());
-        post.setCategorie(post.getCategorie());
-        return post;
-    }*/
 }

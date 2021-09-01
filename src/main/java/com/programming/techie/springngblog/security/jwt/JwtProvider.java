@@ -33,7 +33,6 @@ public class JwtProvider {
         }
     }
 
-
     public String generateToken(Authentication authentication) {
         User principal = (User) authentication.getPrincipal();
         com.programming.techie.springngblog.model.User user =

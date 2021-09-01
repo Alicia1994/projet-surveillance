@@ -16,6 +16,4 @@ public interface PostService {
 
     Post updateSinglePost(PostDto postDto);
 
-   //List<Post> findPostsByUsername(String username);
-
 }

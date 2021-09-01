@@ -25,6 +25,4 @@ public class PostController {
     public ResponseEntity<PostDto> getSinglePost(@PathVariable Long id) {
         return new ResponseEntity<>(postService.readSinglePost(id), HttpStatus.OK);
     }
-
-
     }

@@ -28,6 +28,7 @@ public class AdminController {
     @Autowired
     private PostService postService;
 
+    /* HANDLE POSTS */
     @PostMapping
     public ResponseEntity<Post> createPost(@RequestPart("post") PostDto postDto,
                                            @RequestPart("file") MultipartFile file)
@@ -90,6 +91,4 @@ public class AdminController {
     public void deleteUser(@PathVariable Long id) {
         userServiceImpl.deleteUser(id);
     }
-
-
 }
