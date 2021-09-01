@@ -26,4 +26,5 @@ public class PostController {
         return new ResponseEntity<>(postService.readSinglePost(id), HttpStatus.OK);
     }
 
+
     }

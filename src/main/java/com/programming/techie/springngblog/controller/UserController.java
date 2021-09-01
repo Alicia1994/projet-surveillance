@@ -28,6 +28,12 @@ public class UserController {
     @GetMapping("/name/{username}")
     public User username(@PathVariable String username) { return  userServiceImpl.getUserByUsername(username);}
 
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id) {
+        userServiceImpl.deleteUser(id);
+    }
+
+
  /*      @PutMapping
     public ResponseEntity<User> updateUser(@RequestBody UserDto userDto ) {
         User user = userServiceImpl.updateSingleUser(userDto);
