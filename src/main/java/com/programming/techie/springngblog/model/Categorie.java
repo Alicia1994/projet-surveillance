@@ -1,23 +1,16 @@
 package com.programming.techie.springngblog.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "roles")
+@Table
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Role {
+public class Categorie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(length = 20)
+    private Long id;
     private String name;
 
 }

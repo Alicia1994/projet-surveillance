@@ -20,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -37,18 +37,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-
-    //AUTHORIZATION
+    //****** AUTHORIZATION ******
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeRequests()
-              /*  .antMatchers("/delete/**").hasAuthority("ADMIN")
-                .antMatchers("/edit/**").hasAuthority("ADMIN")
-                .antMatchers("/create/**").hasAuthority("ADMIN")*/
                 .antMatchers("/api/auth/**")
                 .permitAll()
-                .antMatchers("/api/posts/all")
+                .antMatchers("/api/categories/**")
+                .permitAll()
+                .antMatchers("/api/posts/**")
+                .permitAll()
+                .antMatchers("/post-photos/**")
+                .permitAll()
+                .antMatchers("/api/events/**")
+                .permitAll()
+                .antMatchers("/api/admin/**")
+                .hasAuthority("ADMIN")
+                .antMatchers("/api/users/**")
+                .hasAuthority("USER")
+                .antMatchers("/post-photos/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

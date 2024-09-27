@@ -13,10 +13,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.programming.techie.springngblog.common.UserConstant;
-
-import java.util.HashSet;
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class AuthService {
@@ -29,15 +26,14 @@ public class AuthService {
     private AuthenticationManager authenticationManager;
     @Autowired
     private JwtProvider jwtProvider;
- /*   @Autowired
-    RoleRepository roleRepository;*/
 
     public void signup(RegisterRequest registerRequest) {
+
         User user = new User();
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(encodePassword(registerRequest.getPassword()));
-        user.setRoles(UserConstant.DEFAULT_ROLE);
+        user.setRole(UserConstant.DEFAULT_ROLE);
         userRepository.save(user);
     }
 
@@ -46,10 +42,9 @@ public class AuthService {
         user.setUsername(registerRequest.getUsername());
         user.setEmail(registerRequest.getEmail());
         user.setPassword(encodePassword(registerRequest.getPassword()));
-        user.setRoles(UserConstant.ADMIN_ACCESS);
+        user.setRole(UserConstant.ADMIN_ACCESS);
         userRepository.save(user);
     }
-
 
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);
@@ -60,13 +55,6 @@ public class AuthService {
                 loginRequest.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authenticate);
         String authenticationToken = jwtProvider.generateToken(authenticate);
-
-// AJOUTE POUR LE ROLE
-     /*   UserDetailsImpl userDetails = (UserDetailsImpl) authenticate.getPrincipal();
-        List<String> roles = userDetails.getAuthorities().stream()
-                .map(item -> item.getAuthority())
-                .collect(Collectors.toList());*/
-
         return new AuthenticationResponse(authenticationToken, loginRequest.getUsername());
     }
 
